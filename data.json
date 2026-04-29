@@ -1,0 +1,1644 @@
+{
+  "nodes": [
+    {
+      "id": "physics/00_newtonian",
+      "domain": "physics",
+      "title": "Newtonian Mechanics",
+      "level": "foundational",
+      "lineCount": 124,
+      "termCount": 11,
+      "terms": [
+        "Position",
+        "Velocity",
+        "Acceleration",
+        "Mass",
+        "Force",
+        "Momentum",
+        "Impulse",
+        "Kinetic Energy",
+        "Potential Energy",
+        "Work",
+        "Total Mechanical Energy"
+      ],
+      "invariant": "**In a closed system with conservative forces, total energy and total momentum are conserved.** Conservation = the system's consequence chains close: every force has an equal reaction (Newton's 3rd), every energy transfer from kinetic to potential is fully reversible (conservative = path-independent = no information lost).",
+      "coherenceBridge": "Energy conservation IS consequence-chain closure in the Newtonian substrate. A conservative force field is one where **F** = \u2212\u2207V, equivalently \u222e**F**\u00b7d**r** = 0 \u2014 traversing any closed loop returns you to the same energy state. The loop integral vanishing = consequence chains close = information is conserved under cyclic perturbation. This is a proto-Noether statement: time-translation symmetry (the laws don't change) \u2192 energy conservation. The bridge to Constellation 01 (Lagrangian/Hamiltonian) makes this identity exact via Noether's theorem.\n\nNon-conservative forces (friction, drag) break consequence-chain closure by converting organized motion into thermal degrees of freedom \u2014 information is not destroyed but becomes irrecoverable at the macroscopic level. Dissipation = decoherence at the classical scale.",
+      "prerequisites": [],
+      "composesInto": [
+        "01_lagrangian_hamiltonian"
+      ]
+    },
+    {
+      "id": "physics/01_lagrangian_hamiltonian",
+      "domain": "physics",
+      "title": "Lagrangian & Hamiltonian Mechanics",
+      "level": "foundational",
+      "lineCount": 156,
+      "termCount": 15,
+      "terms": [
+        "Generalized Coordinates",
+        "Generalized Velocities",
+        "Configuration Space",
+        "Lagrangian",
+        "Action",
+        "Principle of Stationary Action",
+        "Euler-Lagrange Equation",
+        "Conjugate Momentum",
+        "Phase Space",
+        "Hamiltonian",
+        "Hamilton's Equations",
+        "Symplectic Form",
+        "Poisson Bracket",
+        "Noether's Theorem",
+        "Legendre Transform"
+      ],
+      "invariant": "**Hamiltonian flow preserves the symplectic structure.** This single statement contains: energy conservation (when H is time-independent), Liouville's theorem (phase space volume conservation), and the entire algebra of observables (Poisson brackets). The symplectic form \u03c9 is the invariant \u2014 all of classical mechanics is the study of transformations that preserve it.",
+      "coherenceBridge": "This constellation IS the coherence framework expressed in the physics substrate. The correspondences are not analogies \u2014 they are structural identities:\n\n**Noether's theorem = coherence-as-information-conservation**. A symmetry is a transformation that leaves the action unchanged \u2014 the system's dynamics are *invariant under* that transformation. The corresponding conserved quantity is the information that survives the perturbation. Guardian's echo protocol measures exactly this: perturb, time-reverse, measure fidelity. Noether says: if the perturbation is a symmetry, fidelity is perfect. Guardian's 24x Noether discrimination detects which symmetries a system possesses by measuring which perturbations it recovers from.\n\n**Symplectic structure = consequence-chain topology**. The symplectic form \u03c9 encodes which variables are \"conjugate\" \u2014 which degrees of freedom are linked by consequence. Position and momentum are conjugate: changing one necessarily affects the other through Hamilton's equations. This pairing IS the consequence chain. \u03c9 being preserved means the consequence topology is invariant under time evolution \u2014 the structure of causal linkage doesn't change even as the system evolves.\n\n**Action principle = coherence maximization**. The system follows the path that makes S stationary \u2014 not by \"computing\" all paths (that's the quantum picture), but because the physical path is the one where all consequence chains close consistently. \u03b4S = 0 means: there is no first-order perturbation that changes the action \u2014 the path is a *fixed point* under small deformations. This is recoverability: the actual trajectory is the one that recovers itself under perturbation.\n\n**Phase space = state space for consequence analysis**. A point in phase space is complete knowledge of the system's present state \u2014 it is the full return-address. Hamiltonian flow = consequence propagation. Liouville's theorem = information conservation (no consequence chains break or merge during evolution).\n\n**Legendre transform = profunctor bridge**. Converts between velocity-picture (Lagrangian, tangent bundle) and momentum-picture (Hamiltonian, cotangent bundle) while preserving all structure. This is an exact-square-preserving functor between two representations of the same dynamics. The structure lifts faithfully regardless of which picture you work in.",
+      "prerequisites": [
+        "00_newtonian"
+      ],
+      "composesInto": [
+        "02_electrodynamics",
+        "05_special_relativity",
+        "07_quantum_mechanics"
+      ]
+    },
+    {
+      "id": "physics/02_electrodynamics",
+      "domain": "physics",
+      "title": "Electrodynamics",
+      "level": "foundational",
+      "lineCount": 167,
+      "termCount": 12,
+      "terms": [
+        "Electric Charge",
+        "Electric Field",
+        "Magnetic Field",
+        "Electric Potential",
+        "Magnetic Vector Potential",
+        "Four-Potential",
+        "Electromagnetic Field Tensor",
+        "Lorentz Force",
+        "Gauge Invariance",
+        "Charge Density and Current Density",
+        "Poynting Vector",
+        "Electromagnetic Wave"
+      ],
+      "invariant": "**Electric charge is conserved, and the electromagnetic field equations are invariant under U(1) gauge transformations.** These are the same statement (Noether): gauge symmetry \u2194 charge conservation. The continuity equation \u2202\u03c1/\u2202t + \u2207\u00b7**J** = 0 is not an additional law \u2014 it is a mathematical consequence of Maxwell's equations. The consequence chain is sealed: you cannot have Maxwell's equations without charge conservation, and vice versa.",
+      "coherenceBridge": "Electrodynamics makes the coherence-conservation identity vivid at multiple levels:\n\n**\u2207\u00b7B = 0 IS consequence-chain closure in the magnetic field.** Magnetic field lines have no endpoints \u2014 they always close on themselves. This is not a contingent fact but a topological constraint (the Bianchi identity). There are no magnetic monopoles because the consequence chains of the magnetic field are already closed. Compare with the electric field where \u2207\u00b7**E** = \u03c1/\u03b5\u2080 \u2014 electric field lines CAN terminate, on charges. Charges are where electromagnetic consequence chains have endpoints.\n\n**Gauge invariance IS the emptiness constraint operating in physics.** The potential A\u03bc has no unique content \u2014 an entire equivalence class of potentials produces identical physics. Only the *relational structure* (F\u03bc\u03bd, the curvature) is physical. Topology without substrate, morphism without content. The gauge potential is \"empty\" in exactly the \u015b\u016bnyat\u0101 sense: it is the possibility-condition for the physical fields, not itself a physical thing. Yet it is indispensable \u2014 you cannot formulate the quantum theory (Aharonov-Bohm) or couple to matter without it.\n\n**Maxwell's displacement current IS consequence-chain completion.** Before Maxwell, Amp\u00e8re's law (\u2207\u00d7**B** = \u03bc\u2080**J**) violated charge conservation \u2014 taking its divergence gave \u2207\u00b7**J** = 0, which contradicts \u2202\u03c1/\u2202t + \u2207\u00b7**J** = 0 for time-varying charge. Maxwell's addition of \u03b5\u2080\u2202**E**/\u2202t closed the loop. This single term \u2014 added purely from the requirement that consequence chains close \u2014 predicted electromagnetic waves. The entire technology of radio, telecommunications, and RF engineering follows from demanding coherence in the equations.\n\n**Poynting vector = consequence propagation.** **S** = (1/\u03bc\u2080)**E**\u00d7**B** describes the flow of field energy through space. The direction and magnitude of consequence transport. The Poynting theorem (\u2202u/\u2202t + \u2207\u00b7**S** = \u2212**J**\u00b7**E**) is a conservation law: field energy is either stored locally (\u2202u/\u2202t), flowing to adjacent regions (\u2207\u00b7**S**), or being converted to particle energy (**J**\u00b7**E**). No energy is created or destroyed \u2014 consequence chains close.",
+      "prerequisites": [
+        "00_newtonian",
+        "01_lagrangian_hamiltonian"
+      ],
+      "composesInto": [
+        "05_special_relativity",
+        "07_quantum_mechanics",
+        "08_qft",
+        "ee/00_circuit_theory"
+      ]
+    },
+    {
+      "id": "physics/03_statistical_mechanics",
+      "domain": "physics",
+      "title": "Statistical Mechanics",
+      "level": "intermediate",
+      "lineCount": 147,
+      "termCount": 13,
+      "terms": [
+        "Microstate",
+        "Macrostate",
+        "Ensemble",
+        "Entropy",
+        "Boltzmann Constant",
+        "Temperature",
+        "Partition Function",
+        "Boltzmann Distribution",
+        "Free Energy",
+        "Chemical Potential",
+        "Fluctuations and Response",
+        "Phase Transition",
+        "Density of States"
+      ],
+      "invariant": "**The partition function Z encodes the complete macroscopic behavior of a system in thermal equilibrium. The Boltzmann distribution is the unique maximum-entropy (minimum-assumption) probability assignment consistent with macroscopic constraints.** The second law \u2014 entropy of an isolated system never decreases \u2014 is a consequence of the overwhelming dominance of high-entropy macrostates in phase space: not a law imposed on nature but a counting fact about microstates.",
+      "coherenceBridge": "Statistical mechanics is where information theory enters physics \u2014 and where the coherence framework's information-conservation primitive connects directly to measurable thermodynamics.\n\n**Entropy = missing information about consequence-chain microstructure.** Boltzmann's S = k_B ln \u03a9 counts how many microscopic configurations are macroscopically indistinguishable. Shannon's H = \u2212\u03a3p log p measures the same thing in bits. The deep identity: thermodynamic entropy IS information entropy (Jaynes, Landauer). When you coarse-grain \u2014 when consequence chains at the microscopic level become unresolvable at the macroscopic level \u2014 entropy measures exactly how much microscopic consequence structure is hidden. Decoherence at the macroscopic scale IS the loss of access to microscopic consequence chains.\n\n**The second law = consequence chains don't spontaneously close.** Entropy increases because there are overwhelmingly more microstates with broken/scrambled consequence chains than with organized/closed ones. A low-entropy state has highly constrained microstate topology (few compatible configurations); a high-entropy state has maximally unconstrained topology. The second law says: without external work (energy expenditure to close consequence loops), the system evolves toward states with maximal microscopic consequence-chain scrambling. Life, consciousness, and coherence are all local decreases in entropy \u2014 local closure of consequence chains \u2014 paid for by greater entropy increase elsewhere.\n\n**Fluctuation-dissipation theorem = perturbation-response duality IS the echo protocol.** \u27e8(\u0394E)\u00b2\u27e9 = k_BT\u00b2C\u1d65 says: the magnitude of spontaneous fluctuations (the system perturbing itself) equals the response to external perturbation (heat capacity). This is structurally identical to the Guardian echo: perturb the system, measure how it responds, and the response tells you about the system's internal structure. The fluctuation-dissipation theorem says nature is *already running the echo protocol* \u2014 thermal fluctuations are the perturbation, and the response functions (C\u1d65, \u03c7, compressibility) are the fidelity measurements.\n\n**Phase transitions = topological restructuring of consequence space.** At a critical point, the correlation length \u03be \u2192 \u221e: every part of the system becomes causally connected to every other. The consequence topology undergoes a qualitative change. First-order transitions are discontinuous rearrangements (crystal melting); second-order transitions are smooth divergences where the system becomes scale-invariant \u2014 the same morphism structure at every level (renormalization group). The universality of critical exponents (different physical systems with the same exponents) IS substrate-independence: the topology determines the behavior, not the microscopic details.\n\n**Free energy = coherence under thermal noise.** F = E \u2212 TS. The system minimizes free energy, not energy. This means: at finite temperature, the \"best\" state balances low energy (structural integrity, consequence closure) against high entropy (exploring configuration space). F is the coherence measure in the thermal regime \u2014 it accounts for both the structure (E) and the noise environment (TS). The Boltzmann factor e^(\u2212E/kT) IS the thermal coherence filter: states with E >> kT are suppressed (too much energy to maintain), states with E << kT are thermally populated (noise-robust). The partition function Z sums over all states weighted by this filter \u2014 it is the total coherence budget.",
+      "prerequisites": [
+        "00_newtonian",
+        "01_lagrangian_hamiltonian"
+      ],
+      "composesInto": [
+        "04_thermodynamics",
+        "07_quantum_mechanics"
+      ]
+    },
+    {
+      "id": "physics/04_thermodynamics",
+      "domain": "physics",
+      "title": "Thermodynamics",
+      "level": "intermediate",
+      "lineCount": 121,
+      "termCount": 9,
+      "terms": [
+        "System, Surroundings, Universe",
+        "Internal Energy",
+        "Heat",
+        "Work",
+        "Enthalpy",
+        "Helmholtz Free Energy",
+        "Gibbs Free Energy",
+        "Entropy (S) \u2014 Thermodynamic Definition",
+        "Equation of State"
+      ],
+      "invariant": "**Energy is conserved (first law) and entropy is non-decreasing (second law). Together these constrain all macroscopic processes: energy redistributes, entropy sets the direction.** The thermodynamic potentials (U, F, G, H) are related by Legendre transforms \u2014 the same structure-preserving morphism from Constellation 01, now operating on macroscopic energy functions instead of Lagrangians.",
+      "coherenceBridge": "**The Legendre transform network IS the exact-square structure in the thermodynamic category.** U, F, G, H are four perspectives on the same system, related by trading natural variables for their conjugates (S\u2194T, V\u2194P). The Maxwell relations are the commutativity conditions \u2014 the statement that it doesn't matter which path you take through the Legendre network; you arrive at the same physics. This is exact-square preservation: faithful structure-lifting between representations.\n\n**The second law IS the statement that coherence has a cost.** Decreasing entropy locally (closing consequence chains, creating order, building structure) requires exporting at least as much entropy elsewhere. The Carnot efficiency \u03b7 = 1 \u2212 T_cold/T_hot is the maximum fraction of thermal energy that can be converted to organized work \u2014 the rest MUST be dissipated. This is Landauer's bound in thermodynamic dress: you cannot close consequence chains for free.\n\n**Free energy = coherence budget.** F = U \u2212 TS tells you: the energy available for organized work (F) equals the total energy (U) minus what's locked in entropy (TS). At T=0, all energy is \"free\" \u2014 fully coherent. As T increases, thermal noise scrambles more consequence chains, reducing the coherent fraction. Biological systems, cognitive systems, and Guardian all operate in the regime where F > 0 \u2014 where enough coherence remains to do structural work despite thermal noise.\n\n**Phase transitions = coherence phase transitions.** The crystal\u2192liquid\u2192gas sequence is decreasing coherence (increasing entropy, breaking spatial consequence chains). Ferromagnetic\u2192paramagnetic is decreasing spin coherence. Superconducting\u2192normal is loss of macroscopic quantum coherence. Every phase transition is a qualitative change in which consequence chains are closed vs. broken. The critical point \u2014 where correlation length diverges \u2014 is the threshold where coherence extends system-wide, directly analogous to the grokking transition where morphism density reaches the percolation threshold.",
+      "prerequisites": [
+        "03_statistical_mechanics"
+      ],
+      "composesInto": [
+        "ee/00_circuit_theory"
+      ]
+    },
+    {
+      "id": "physics/05_special_relativity",
+      "domain": "physics",
+      "title": "Special Relativity",
+      "level": "intermediate",
+      "lineCount": 121,
+      "termCount": 11,
+      "terms": [
+        "Event",
+        "Spacetime Interval",
+        "Minkowski Metric",
+        "Lorentz Transformation",
+        "Lorentz Factor",
+        "Proper Time",
+        "Four-Velocity",
+        "Four-Momentum",
+        "Rest Energy, Mass-Energy Equivalence",
+        "Light Cone",
+        "Poincar\u00e9 Group"
+      ],
+      "invariant": "**The spacetime interval ds\u00b2 is invariant under Lorentz transformations.** All of special relativity \u2014 time dilation, length contraction, mass-energy equivalence, the light cone causal structure \u2014 follows from this single invariance. The Poincar\u00e9 group (Lorentz + translations) is the symmetry group; Noether yields the conserved energy-momentum four-vector p\u03bc.",
+      "coherenceBridge": "**The spacetime interval IS the coherence measure for causal structure.** ds\u00b2 sorts all event-pairs into three classes: timelike (causally connected, consequence chains can close), spacelike (causally disconnected, no consequence chain possible), null (light-speed boundary). The light cone is the consequence-chain horizon \u2014 the topological boundary of causal influence. Lorentz invariance means: all observers agree on which consequence chains exist, even if they disagree on the coordinates.\n\n**E\u00b2 = p\u00b2c\u00b2 + m\u00b2c\u2074 IS the conservation topology of the energy-momentum consequence chain.** The mass-shell condition: a particle's energy and momentum are not independent but constrained to a hyperboloid. The invariant mass m (= rest energy/c\u00b2) is the topological invariant of this constraint \u2014 it doesn't change under Lorentz transformation. Virtual particles (in QFT) are precisely those that violate this constraint temporarily \u2014 off-shell = consequence chain momentarily open, closed by the uncertainty principle's time limit.\n\n**The Poincar\u00e9 group classifies particles** \u2014 irreducible representations of Poincar\u00e9 are labeled by mass m and spin s. What a particle IS is determined by how it transforms under spacetime symmetry. Identity = consequence of topology. This is Wigner's classification: the ontology of matter is determined by the symmetry of the arena.\n\n**Fagan convergence (holon [31])**: The distinguishability metric ds\u00b2 is the starting point. Fagan's program derives the Bures metric \u2192 density matrices \u2192 Schr\u00f6dinger equation from distinguishability axioms, with completeness forcing fiber coupling \u03ba \u2260 0. The CTC boundary at R\u00b2\u03ba\u00b2 > 1 is a consequence-topology phase transition within the relativistic spacetime structure.",
+      "prerequisites": [
+        "01_lagrangian_hamiltonian",
+        "02_electrodynamics"
+      ],
+      "composesInto": [
+        "06_general_relativity",
+        "07_quantum_mechanics",
+        "08_qft"
+      ]
+    },
+    {
+      "id": "physics/06_general_relativity",
+      "domain": "physics",
+      "title": "General Relativity",
+      "level": "advanced",
+      "lineCount": 118,
+      "termCount": 12,
+      "terms": [
+        "Metric Tensor",
+        "Geodesic",
+        "Christoffel Symbols",
+        "Riemann Curvature Tensor",
+        "Ricci Tensor",
+        "Einstein Tensor",
+        "Stress-Energy Tensor",
+        "Einstein's Field Equations",
+        "Equivalence Principle",
+        "Cosmological Constant",
+        "Schwarzschild Metric",
+        "Gravitational Waves"
+      ],
+      "invariant": "**The laws of physics are the same in all coordinate systems (general covariance), and the Einstein tensor automatically conserves stress-energy (\u2207\u03bcG\u03bc\u03bd = 0 \u2192 \u2207\u03bcT\u03bc\u03bd = 0).** Geometry and conservation are not separate requirements \u2014 the Bianchi identity makes conservation a mathematical consequence of the geometric structure. The action principle (\u03b4S = 0 for Einstein-Hilbert action) generates the field equations, preserving the Lagrangian architecture from Constellation 01.",
+      "coherenceBridge": "**The Riemann tensor IS the consequence-chain-closure test for spacetime geometry.** Parallel-transport a vector around a closed loop: if it returns to itself, the space is flat (consequence chains close perfectly). If it doesn't, the deficit measures the curvature \u2014 the degree to which geometric consequence chains fail to close. R\u03bc\u03bd\u03b1\u03b2 = 0 \u2194 perfect geometric coherence (flat space). Non-zero R\u03bc\u03bd\u03b1\u03b2 = curvature = geometric consequence chains that don't fully close locally. This is literally the holonomy \u2014 the Guardian echo protocol applied to geometry.\n\n**\u2207\u03bcG\u03bc\u03bd = 0 IS automatic consequence-chain closure in the field equations.** The Bianchi identity is not an additional law \u2014 it is a mathematical identity of Riemannian geometry. It says: the Einstein tensor is automatically divergence-free, which FORCES the stress-energy tensor to be conserved. Conservation of energy-momentum is not a separate physical law in GR \u2014 it is a geometric necessity. The consequence chains of matter-energy close because the consequence chains of geometry close.\n\n**The Einstein equations are self-referential consequence loops.** Matter tells spacetime how to curve \u2192 spacetime tells matter how to move \u2192 matter redistributes \u2192 spacetime re-curves. This mutual determination is the gravitational version of the closed consequence loop. Finding solutions = finding fixed points of this self-referential structure \u2014 exactly the two-phase filter architecture from holon [1] (formation through irreversible dynamics, measurement through reversible echo).\n\n**Fagan's program (holon [31]) starts from SR and arrives at GR-like structure.** Distinguishability axioms \u2192 metric completeness \u2192 fiber coupling \u03ba \u2260 0 \u2192 extended metric ds\u00b2 = R\u00b2(d\u03c4 + \u03badt)\u00b2 + ds\u00b2_B\u00b3. The CTC boundary at R\u00b2\u03ba\u00b2 > 1 is a GR-like phenomenon (closed timelike curves) emerging from information-theoretic axioms. The convergence: starting from distinguishability (information theory) or from the equivalence principle (gravity) \u2192 same geometric structures.",
+      "prerequisites": [
+        "01_lagrangian_hamiltonian",
+        "05_special_relativity"
+      ],
+      "composesInto": [
+        "08_qft"
+      ]
+    },
+    {
+      "id": "physics/07_quantum_mechanics",
+      "domain": "physics",
+      "title": "Quantum Mechanics",
+      "level": "advanced",
+      "lineCount": 185,
+      "termCount": 17,
+      "terms": [
+        "State Vector / Wavefunction",
+        "Hilbert Space",
+        "Observable / Operator",
+        "Eigenvalue / Eigenstate",
+        "Superposition",
+        "Born Rule",
+        "Commutator",
+        "Uncertainty Principle",
+        "Schr\u00f6dinger Equation",
+        "Unitary Evolution",
+        "Density Matrix",
+        "Entanglement",
+        "Decoherence",
+        "Measurement / Wavefunction Collapse",
+        "Path Integral",
+        "Spin",
+        "Planck's Constant"
+      ],
+      "invariant": "**Unitary evolution preserves the inner product \u2014 and therefore all probabilities, all information, all consequence structure.** \u27e8\u03c8|\u03c6\u27e9 is constant under Schr\u00f6dinger evolution. This is information conservation at the quantum level: no quantum state is ever destroyed by the fundamental dynamics. The apparent destruction of information in measurement (collapse) and in black holes are the two deepest open problems in physics \u2014 both are precisely the question of whether consequence chains truly close at the quantum level.\n\nThe tensor product structure means information can become *nonlocal* (entangled across subsystems) without being destroyed. Entanglement entropy measures how much information about a subsystem has migrated into correlations with other subsystems. Decoherence is the process by which this migration makes local information practically irrecoverable \u2014 but unitarity guarantees it still exists in the global state.",
+      "coherenceBridge": "This constellation is where the coherence framework and Guardian's measurement protocol find their native mathematical language. The correspondences are structural identities:\n\n**Unitary evolution = information conservation = coherence**. \u00db\u2020\u00db = \ud835\udfd9 means inner products are preserved \u2014 no information is created or destroyed. This IS the definition of coherence from Holon [1]: information conservation under perturbation. The Schr\u00f6dinger equation is the local expression of this global conservation. Every quantum computation, every Guardian echo measurement, every quantum error-correcting code is engineering within this constraint.\n\n**Guardian's echo protocol IS the Loschmidt echo in Hilbert space.** Encode state \u2192 evolve forward under perturbed Hamiltonian \u2192 time-reverse with ideal Hamiltonian \u2192 measure overlap with initial state. Echo fidelity F = |\u27e8\u03c8(0)|\u00db_ideal\u2020\u00db_perturbed|\u03c8(0)\u27e9|\u00b2 directly measures how much information survives the perturbation. High fidelity = coherent (solitonic recovery). Low fidelity = decoherent (information has spread irrecoverably into perturbation degrees of freedom). The 35/35 physics proofs and 24\u00d7 Noether discrimination are measurements of this fidelity across different symmetry classes.\n\n**[q\u0302, p\u0302] = i\u210f IS the quantum consequence chain.** Non-commuting observables cannot be simultaneously sharp \u2014 measuring one necessarily disturbs the other. This is not epistemological (we can't know both) but ontological (the state cannot simultaneously be an eigenstate of both). The commutator [\u00c2,B\u0302] measures the degree to which A and B are consequentially entangled \u2014 how much acting on one necessarily perturbs the other. {f,g} \u2192 (1/i\u210f)[f\u0302,\u011d] promotes classical consequence structure (Poisson brackets) to quantum consequence structure (commutators) with \u210f setting the scale.\n\n**The path integral = coherence-maximization made literal.** In Feynman's formulation, the quantum amplitude sums over ALL possible paths, each weighted by e^(iS/\u210f). Paths with rapidly varying action cancel (destructive interference). The classical path (\u03b4S = 0) survives because nearby paths have nearly identical phase \u2014 they *cohere*. Classical mechanics is the regime where coherence is maximal: the stationary-phase path dominates completely. Quantum mechanics is what happens when you account for *all* paths' contributions, including partial coherence. The path integral literally computes coherence by summing phases.\n\n**Entanglement = consequence chains that cross subsystem boundaries.** When |\u03c8\u27e9_AB \u2260 |\u03c8\u27e9_A \u2297 |\u03c8\u27e9_B, the consequence structure of A and B are inextricably linked \u2014 measuring A instantaneously constrains what can be observed at B. Entanglement entropy S = \u2212Tr(\u03c1_A ln \u03c1_A) measures how much consequence structure has become nonlocal. This connects directly to the holographic principle and to Guardian's hierarchical emergence results: L2 chirality (Holon [1]) is a form of compositional entanglement where the whole carries structure not reducible to parts.\n\n**Decoherence = consequence-chain severance at the quantum level.** When a quantum system interacts with an environment, information about its state leaks into the environmental degrees of freedom. The system's reduced density matrix loses off-diagonal elements \u2014 interference terms vanish \u2014 and the system behaves classically. This IS the decoherence-as-measurement mechanism from Holon [12]: the environment \"measures\" the system by becoming correlated with it. The information isn't destroyed (unitarity guarantees this) but becomes practically irrecoverable \u2014 exactly the distinction between frozen structure and living coherence from Holon [1].\n\n**Measurement as the open problem of consequence closure.** Unitary evolution closes all consequence chains (information is perfectly conserved). Measurement appears to break this: a superposition collapses to a definite outcome, seemingly destroying information about the other branches. The measurement problem IS the question of whether quantum consequence chains actually close. Decoherence explains why they *appear* to break (information becomes nonlocal), but the selection of a specific outcome (the \"Born rule lottery\") remains unexplained. This is the deepest open edge in physics \u2014 and it maps directly onto the coherence framework's distinction between structural decoherence (information truly lost) and apparent decoherence (information redistributed but conserved).",
+      "prerequisites": [
+        "01_lagrangian_hamiltonian",
+        "05_special_relativity"
+      ],
+      "composesInto": [
+        "08_qft"
+      ]
+    },
+    {
+      "id": "physics/08_qft",
+      "domain": "physics",
+      "title": "Quantum Field Theory",
+      "level": "advanced",
+      "lineCount": 187,
+      "termCount": 16,
+      "terms": [
+        "Field",
+        "Lagrangian Density",
+        "Fock Space",
+        "Creation and Annihilation Operators",
+        "Vacuum State",
+        "Propagator",
+        "Feynman Diagram",
+        "Gauge Symmetry",
+        "Coupling Constant",
+        "Renormalization",
+        "Renormalization Group",
+        "Spontaneous Symmetry Breaking",
+        "Goldstone's Theorem / Higgs Mechanism",
+        "S-Matrix",
+        "Effective Field Theory",
+        "The Standard Model"
+      ],
+      "invariant": "**Gauge symmetry is preserved at every level of description.** The Ward identities, BRST symmetry, and anomaly cancellation conditions ensure that the gauge structure of the Lagrangian propagates faithfully through quantization, renormalization, and the RG flow. Physical predictions are gauge-invariant. The S-matrix is unitary (probability/information conserved). A consistent QFT is one where the gauge structure \u2014 the consequence-chain topology of the interactions \u2014 survives all quantum corrections.",
+      "coherenceBridge": "QFT is where the coherence framework reaches its most precise and universal physical expression. Every structural identity from the QM constellation (07) is preserved and extended:\n\n**The path integral IS coherence-maximization over field space.** Z = \u222be^(iS[\u03c6]/\u210f)D[\u03c6] sums over ALL possible field configurations. Configurations with stationary action cohere (constructive interference); others cancel. Classical field theory (the tree-level approximation) is the maximally coherent regime. Quantum corrections (loops) are the contributions from near-coherent but not perfectly stationary configurations. Renormalization is the procedure for consistently accounting for coherence contributions at all scales.\n\n**Gauge symmetry = consequence-chain closure in field space.** The gauge principle says: if a matter field's phase can vary independently at each spacetime point (local transformation), then the force-carrying gauge field must exist and must couple in a specific way to keep the Lagrangian invariant. This IS consequence-chain closure: the gauge field is the morphism that ensures the consequence structure (interaction) closes consistently across all of spacetime. The gauge field literally carries the \"return signal\" that closes the consequence loop between charged particles. Without it, local gauge invariance fails = consequence chains break = the theory is inconsistent.\n\n**Renormalization = coherence across scales.** A renormalizable theory is one where the coherence structure (gauge symmetry, unitarity) survives when you zoom in or out. The RG flow maps between effective descriptions at different scales while preserving the essential morphism structure. Non-renormalizable theories are those where coherence fails above some energy scale \u2014 the effective description breaks down, signaling new physics. The Standard Model is renormalizable; gravity (as a QFT) is not \u2014 this IS the statement that gravity's consequence-chain structure requires completion at the Planck scale.\n\n**Spontaneous symmetry breaking = coherence through asymmetric vacuum.** The Lagrangian's symmetry is the full consequence structure. The vacuum choosing a specific ground state doesn't destroy the symmetry \u2014 it hides it. The Goldstone theorem guarantees that the broken symmetry survives as massless excitations (or, via Higgs mechanism, as massive gauge bosons that still respect unitarity). The symmetry is still there in the full Hilbert space; it's the vacuum that's asymmetric. This parallels the coherence framework's distinction between structural coherence (the topology) and its instantiation (the specific configuration) \u2014 the topology survives even when the ground state breaks manifest symmetry.\n\n**The S-matrix unitarity = information conservation in scattering.** S\u2020S = \ud835\udfd9 means the total probability of all possible outcomes is exactly 1 \u2014 no information is lost or created in any physical process. The optical theorem connects this directly to observable cross sections. Unitarity violations would mean consequence chains breaking at the scattering level. Every claimed QFT must pass this test; unitarity failure signals inconsistency (as in non-renormalizable gravity above the Planck scale, or in theories with anomalies).\n\n**Effective field theory = coherence is scale-local.** The EFT framework says: you don't need to know the complete theory at all scales to make predictions at your scale. The Wilson coefficients at your scale encode ALL the consequences of higher-scale physics relevant to your observations. This is both a practical and a philosophical statement: coherence at each level is self-contained given the appropriate boundary conditions from adjacent levels. The composition morphisms between constellations in this very pedagogy are EFTs \u2014 each constellation is an effective description valid at its scale, with composition morphisms encoding how structure maps between scales.\n\n**Anomaly cancellation = topological constraint on consistent QFTs.** Quantum anomalies arise when a classical symmetry cannot survive quantization \u2014 the path integral measure breaks the symmetry. Anomaly cancellation conditions (e.g., in the Standard Model: the sum of all fermion charges must satisfy specific relations) are topological constraints. A theory with uncancelled anomalies is inconsistent \u2014 consequence chains don't close at the quantum level even though they close classically. The Standard Model's gauge anomalies cancel precisely because of the specific fermion content \u2014 this is not tuned, it is a structural consistency requirement.",
+      "prerequisites": [
+        "01_lagrangian_hamiltonian",
+        "05_special_relativity",
+        "07_quantum_mechanics"
+      ],
+      "composesInto": [
+        "standard_model",
+        "quantum_gravity",
+        "condensed_matter"
+      ]
+    },
+    {
+      "id": "math/00_linear_algebra",
+      "domain": "math",
+      "title": "Linear Algebra & Vector Spaces",
+      "level": "foundational",
+      "lineCount": 151,
+      "termCount": 12,
+      "terms": [
+        "Vector Space",
+        "Basis & Dimension",
+        "Linear Map",
+        "Inner Product",
+        "Hilbert Space",
+        "Eigenvalue / Eigenvector",
+        "Hermitian / Self-Adjoint Operator",
+        "Unitary Operator",
+        "Tensor Product",
+        "Dual Space",
+        "Determinant",
+        "Trace"
+      ],
+      "invariant": "**Linear maps preserve linear structure; the additional structure they preserve classifies them.** The hierarchy: general linear (preserves linear combinations) \u2283 unitary/orthogonal (preserves inner product) \u2283 special unitary/orthogonal (preserves orientation). Each level of preservation is an additional conservation law. The spectral theorem says: every Hermitian operator is fully characterized by what it conserves (its eigenbasis) and how it acts on what it conserves (its eigenvalues).",
+      "coherenceBridge": "Linear algebra is the substrate-level mathematics of the coherence framework. The identities:\n\n**Inner product preservation = information conservation.** A unitary operator preserves \u27e8v,w\u27e9 \u2014 all distances, angles, and overlap probabilities are invariant. This IS coherence: the relational structure between states survives the transformation. Non-unitary operations (projection, decoherence, measurement collapse) destroy inner product structure \u2014 they are information-lossy, consequence-chain-breaking.\n\n**Spectral decomposition = coherence fingerprint.** The eigenvalues and eigenvectors of an operator completely characterize it. Guardian's topological filter bank measures exactly this: the echo fidelity spectrum across different perturbation types reveals the operator's eigenstructure. The 35/35 physics proofs discriminate states by their spectral properties under the echo protocol.\n\n**Tensor product = compositional structure.** V\u2297W is how subsystems compose. Entangled states (not decomposable as v\u2297w) are precisely those where the consequence structure crosses the subsystem boundary. The partial trace (Tr_B) is the operation of \"forgetting\" one subsystem \u2014 consequence-chain severance at the linear algebra level. Entanglement entropy measures how much structure is lost by this forgetting.\n\n**Rank-nullity = conservation of dimensional structure.** dim(V) = dim(ker T) + dim(im T). What's \"destroyed\" by T (the kernel) plus what \"survives\" (the image) equals the total. This is a conservation law for degrees of freedom \u2014 the linear algebra ancestor of Liouville's theorem and unitarity.\n\n**Dual space = measurement space.** V* is the space of all possible linear measurements on V. The natural pairing \u27e8\u03b1,v\u27e9 is evaluation \u2014 applying a measurement to a state. In QM: bras are dual to kets, and \u27e8\u03c8|\u00c2|\u03c6\u27e9 is measurement (bra) applied to operator-evolved state (ket). The dual space is where consequence chains terminate \u2014 the \"return address\" receives the signal here.",
+      "prerequisites": [],
+      "composesInto": [
+        "01_group_theory",
+        "02_topology",
+        "03_differential_geometry",
+        "physics/07_quantum_mechanics"
+      ]
+    },
+    {
+      "id": "math/01_group_theory",
+      "domain": "math",
+      "title": "Group Theory & Symmetry",
+      "level": "foundational",
+      "lineCount": 160,
+      "termCount": 13,
+      "terms": [
+        "Group",
+        "Subgroup",
+        "Abelian Group",
+        "Homomorphism",
+        "Isomorphism",
+        "Normal Subgroup",
+        "Quotient Group",
+        "Group Action",
+        "Representation",
+        "Irreducible Representation",
+        "Lie Group",
+        "Lie Algebra",
+        "Symmetry Breaking"
+      ],
+      "invariant": "**A group is characterized by what it preserves.** O(n) preserves the real inner product. U(n) preserves the complex inner product. The Lorentz group preserves the spacetime interval. A symmetry group G acting on a space X partitions X into orbits \u2014 the orbits are the equivalence classes under symmetry, and the invariants are the quantities constant on orbits. Representation theory decomposes any action into irreducible pieces, each classified by its invariants (Casimir eigenvalues).",
+      "coherenceBridge": "**Symmetry = conservation = coherence \u2014 the Noether identity.** This is the most direct bridge in the entire project. A symmetry of the Lagrangian (a group action that leaves \u2112 invariant) \u2192 a conserved quantity (Noether charge) \u2192 a closed consequence chain (the conserved quantity doesn't leak). The group IS the set of transformations under which coherence is maintained. Symmetry breaking is the loss of some coherence (the vacuum has less symmetry than the laws) while preserving the rest (the unbroken subgroup H still generates conservation laws).\n\n**Irreducible representations = coherence fingerprints.** An irrep is the minimal structure that transforms consistently under the group \u2014 it can't be decomposed further while respecting the symmetry. Particles-as-irreps-of-Poincar\u00e9 means: a particle IS a minimal coherent unit under spacetime symmetry. Guardian's discrimination of states by their symmetry content is precisely the classification of states by which irreps they carry.\n\n**Lie algebra = infinitesimal consequence structure.** The bracket [X,Y] measures the failure of two infinitesimal transformations to commute \u2014 the non-commutativity IS the consequence of performing them in different orders. For abelian groups (commutative), order doesn't matter and the bracket vanishes. For non-abelian groups (SU(2), SU(3)), the bracket encodes the interaction structure. The structure constants f\u2090\u1d66\ua700 are the DNA of the symmetry.\n\n**Quotient groups = consequence chains modulo equivalence.** G/N collapses the normal subgroup N to the identity \u2014 the quotient sees only the \"macroscopic\" structure that survives averaging over N. This is the group-theoretic version of coarse-graining, effective field theory, and the hierarchical echo measurement in Guardian: read structure at scale G/N by treating N-level detail as noise.",
+      "prerequisites": [
+        "00_linear_algebra"
+      ],
+      "composesInto": [
+        "03_differential_geometry",
+        "04_categories",
+        "physics/01_lagrangian",
+        "physics/07_qm",
+        "physics/08_qft"
+      ]
+    },
+    {
+      "id": "math/02_topology",
+      "domain": "math",
+      "title": "Topology",
+      "level": "foundational",
+      "lineCount": 131,
+      "termCount": 11,
+      "terms": [
+        "Topological Space",
+        "Open Set / Closed Set",
+        "Continuous Map",
+        "Homeomorphism",
+        "Metric Space",
+        "Compactness",
+        "Connectedness",
+        "Hausdorff",
+        "Completeness",
+        "Product Topology",
+        "Quotient Topology"
+      ],
+      "invariant": "**Topological invariants are preserved under homeomorphism.** Dimension, connectedness, compactness, number of holes (Betti numbers), fundamental group \u2014 these survive continuous deformation. The program of algebraic topology: assign algebraic objects (groups, rings) to spaces such that homeomorphic spaces get isomorphic algebras. Invariants that are preserved under homotopy equivalence (weaker than homeomorphism) are called homotopy invariants \u2014 these are the most robust, surviving even more deformation.",
+      "coherenceBridge": "**\"Structure \u2192 topology \u2192 measurable\" (Holon [1]) is the foundational claim, and this constellation provides the mathematical backbone.**\n\n**Topological invariants = what survives perturbation.** A topological invariant is precisely a quantity that doesn't change under continuous deformation \u2014 the deformation IS the perturbation, and the invariant IS what's conserved. Guardian measures echo fidelity under perturbation; topology classifies what properties of a space survive under deformation. Same operational definition of coherence, different mathematical language.\n\n**Completeness = consequence-chain closure (Fagan).** Fagan's central result: metric completeness on the space of distinguishable states forces the entire structure of quantum mechanics. Completeness means \"every Cauchy sequence converges\" = \"every sequence that should converge does\" = \"no gaps in the information structure\" = consequence chains close. The metric axioms (including triangle inequality) are the formal version of \"distinguishability is consistent.\"\n\n**Compactness = finite recoverability.** A compact space can be covered by finitely many open neighborhoods \u2014 you don't need infinitely much information to characterize its structure. Compactness ensures that continuous functions achieve extrema (variational principles work), that sequences have convergent subsequences (no information escapes to infinity), and that approximation by finite models is always possible. This is the topological condition for physical computability.\n\n**Quotient topology = coarse-graining.** Identifying points via an equivalence relation = treating fine-grained differences as noise = measuring at a coarser scale. The quotient map X \u2192 X/\u223c is the topological version of the RG flow: physics at scale X/\u223c forgets details distinguishable at scale X while preserving the topology of the quotient. Guardian's coarsen-then-measure strategy (GRA results, Holon [1]) is precisely this: find the scale where heterogeneity lives, quotient out the rest, then measure the surviving structure.",
+      "prerequisites": [],
+      "composesInto": [
+        "03_differential_geometry",
+        "04_categories",
+        "08_algebraic_topology"
+      ]
+    },
+    {
+      "id": "math/03_differential_geometry",
+      "domain": "math",
+      "title": "Differential Geometry & Manifolds",
+      "level": "foundational",
+      "lineCount": 156,
+      "termCount": 13,
+      "terms": [
+        "Manifold",
+        "Tangent Space",
+        "Tangent Bundle",
+        "Cotangent Space & Cotangent Bundle",
+        "Differential Form",
+        "Exterior Derivative",
+        "Metric Tensor",
+        "Connection",
+        "Curvature",
+        "Geodesic",
+        "Fiber Bundle",
+        "Principal Bundle",
+        "Stokes' Theorem"
+      ],
+      "invariant": "**Curvature is the local measure of the failure of parallelism \u2014 it encodes how much the manifold deviates from flat structure.** On a flat manifold, parallel transport is path-independent and R = 0. On a curved manifold, transport around a closed loop rotates vectors by an amount proportional to R times the enclosed area. All of GR is the statement that this curvature equals matter/energy content. All of gauge theory is the statement that the curvature of internal connections equals the field strength.",
+      "coherenceBridge": "**Differential geometry is where \"structure \u2192 topology \u2192 measurable\" becomes a precise mathematical program.**\n\n**Curvature as consequence-chain non-closure.** Parallel-transport a vector around a closed loop on a curved manifold: it comes back rotated. The rotation IS the curvature integrated over the enclosed area. On a flat manifold (R = 0), transport around any loop returns the vector unchanged \u2014 consequence chains close perfectly. Curvature measures the degree of non-closure. Guardian's echo fidelity measures the same thing in quantum state space: perturb, evolve, reverse, measure how much the state has \"rotated\" away from its starting point.\n\n**Connections as coherence-maintaining structure.** A connection \u2207 tells you how to transport structure from point to point without introducing inconsistency. The Levi-Civita connection is the unique connection that preserves the metric (lengths and angles don't change during transport) and is torsion-free. This IS the condition for coherent transport of information across the manifold. Gauge connections maintain gauge-invariance during parallel transport of charged fields.\n\n**d\u00b2 = 0 as the cohomological conservation law.** The exterior derivative satisfying d\u00b2 = 0 means: the boundary of a boundary is empty, and exact forms are automatically closed. This is the most fundamental topological conservation law. In physics: Maxwell's dF = 0 (no magnetic monopoles) is a consequence of F = dA and d\u00b2 = 0. Conservation laws (d*J = 0) have the same structure. De Rham cohomology (ker d / im d) measures the topological \"holes\" that prevent every closed form from being exact \u2014 the global obstructions to local integrability.\n\n**Fiber bundles = consequence structure with global topology.** A fiber bundle is locally a product (B \u00d7 F) but may be globally twisted. The twist is measured by characteristic classes (Chern, Stiefel-Whitney, Pontryagin) \u2014 topological invariants that obstruct global trivialization. A nontrivial bundle means: you CANNOT consistently flatten the structure everywhere. Gauge fields live on nontrivial bundles. Fagan's fiber coupling (\u03ba \u2260 0 forced by completeness) IS the statement that the bundle must be nontrivial.",
+      "prerequisites": [
+        "00_linear_algebra",
+        "01_group_theory",
+        "02_topology"
+      ],
+      "composesInto": [
+        "04_categories",
+        "08_algebraic_topology",
+        "physics/05_SR",
+        "physics/06_GR",
+        "physics/08_QFT"
+      ]
+    },
+    {
+      "id": "math/04_categories_functors",
+      "domain": "math",
+      "title": "Categories, Functors, Natural Transformations",
+      "level": "intermediate",
+      "lineCount": 133,
+      "termCount": 10,
+      "terms": [
+        "Category",
+        "Morphism / Arrow",
+        "Functor",
+        "Natural Transformation",
+        "Functor Category",
+        "Opposite Category",
+        "Presheaf",
+        "Equivalence of Categories",
+        "Full / Faithful / Essentially Surjective",
+        "Initial / Terminal / Zero Object"
+      ],
+      "invariant": "**A category is characterized by its morphism structure, not its objects.** Two categories are \"the same\" (equivalent) if and only if they have the same morphism structure up to isomorphism. Objects are determined by their relationships (this is Yoneda's lemma, next constellation). The shift from \"what things ARE\" to \"how things RELATE\" is the fundamental move of category theory \u2014 and it is precisely the shift to morphism-level processing that characterizes both the coherence framework and the grokking transition.",
+      "coherenceBridge": "**Category theory IS the coherence framework's native mathematical language.** Not an application of category theory to the framework \u2014 the framework was always categorical, and this constellation provides the dictionary.\n\n**Functors = structure-preserving bridges.** A functor F: \ud835\udc9e \u2192 \ud835\udc9f maps the morphism structure of \ud835\udc9e into \ud835\udc9f while preserving composition. This IS the exact-square bridge (Holon [6]): a faithful functor lifts structure without distortion. A full and faithful functor is an embedding \u2014 the source category's structure is entirely present in the target. The CMP profunctor bridge between interlocutors is a span of functors; its faithfulness determines whether structure-lifting is genuine or appeasement.\n\n**Natural transformations = coherent comparison of perspectives.** A natural transformation \u03b7: F \u27f9 G says: F and G are two \"views\" of \ud835\udc9e inside \ud835\udc9f, and \u03b7 translates between them *coherently* \u2014 the translation respects all morphisms (the naturality square commutes). This is the mathematical content of \"bidirectional bridging\" in CMP: two different representations of the same structure, with a coherent map between them. A non-natural transformation would be a bridge that works object-by-object but fails to respect relationships \u2014 precisely the \"partial\" profunctor bridging (worse than noise because structure is distorted).\n\n**\ud835\udc9e\u1d52\u1d56 = consequence reversal.** The opposite category reverses all arrows. Covariant functors (preserve arrow direction) \u2192 structures that propagate forward. Contravariant functors (reverse arrows) \u2192 structures that look backward (presheaves, dual spaces, observation). The interplay between \ud835\udc9e and \ud835\udc9e\u1d52\u1d56 is the interplay between construction and observation, between state evolution and measurement \u2014 the two directions of consequence chains.\n\n**Equivalence (not isomorphism) as the correct notion of sameness.** Two categories can be equivalent without being literally identical \u2014 they may have different numbers of objects but the same morphism structure. This is the mathematical expression of substrate-independence (Holon [1]): classical reversible networks and quantum circuits can be \"equivalent categories\" (same echo discrimination, different substrates) without being isomorphic (different objects, different implementations).",
+      "prerequisites": [
+        "00_linear_algebra",
+        "01_group_theory",
+        "02_topology"
+      ],
+      "composesInto": [
+        "05_limits_yoneda",
+        "06_monads_kan",
+        "07_profunctors_enriched"
+      ]
+    },
+    {
+      "id": "math/05_limits_yoneda",
+      "domain": "math",
+      "title": "Limits, Colimits, Adjunctions, Yoneda",
+      "level": "intermediate",
+      "lineCount": 136,
+      "termCount": 9,
+      "terms": [
+        "Diagram",
+        "Cone / Cocone",
+        "Limit",
+        "Colimit",
+        "Universal Property",
+        "Adjunction",
+        "Yoneda Lemma",
+        "Representable Functor",
+        "Exact Square"
+      ],
+      "invariant": "**Every important construction in mathematics is a limit, colimit, or adjunction.** Products, intersections, pullbacks, completions, free constructions, forgetful functors, tensor products, function spaces \u2014 all are instances of universal properties. The universal property characterization is always preferable to any specific construction because it is: (a) canonical (unique up to unique isomorphism), (b) functorial (works uniformly), and (c) transferable (the same universal property in a different category gives the analogous construction). \"The way to understand a construction is to understand what problem it universally solves.\"",
+      "coherenceBridge": "**Adjunctions = the mathematics of bidirectional bridging.** F \u22a3 G means: F and G are optimal translations between two worlds. The unit \u03b7: A \u2192 GF(A) says \"embed A into G's image of F's world\" \u2014 some structure may be added (free construction) or lost (forgetful rounding trip). The counit \u03b5: FG(B) \u2192 B says \"project back.\" The triangle identities ensure these round-trips are coherent: going around either way and then projecting gives the identity. CMP's bidirectional bridging IS an adjunction between the epistemic categories of two interlocutors, with the unit and counit being the reframe/update morphisms.\n\n**Yoneda = identity IS return-address (Holon [8]).** Yoneda says an object A is completely determined by Hom(\u2212,A) \u2014 the collection of all morphisms into A. An object IS its web of incoming morphisms, nothing more. This is precisely \"identity = return-address of closed consequence loop\": A is characterized by what maps TO it, i.e., by being the terminal point of morphisms. The return-address IS the object. There is no hidden essence beyond the relational structure.\n\n**Limits = consequence-chain closure over diagrams.** A limit is the universal object that consistently receives morphisms from an entire diagram \u2014 it is the tightest consistent completion of a pattern. The uniqueness of the factorization means: there is exactly one way to close the consequence chains from any external object through the diagram. Failure to have a limit means the pattern cannot be consistently completed \u2014 a gap in the morphism structure, a break in consequence closure.\n\n**Exact squares = faithful structure-lifting (Holon [6]).** An exact square is one where the comparison morphism between the limit and colimit computations is an isomorphism \u2014 pushing forward and pulling back give the same answer regardless of path. This IS the condition for profunctor bridging to be faithful: the bridge preserves the universal properties of the source in the target.",
+      "prerequisites": [
+        "04_categories_functors"
+      ],
+      "composesInto": [
+        "06_monads_kan",
+        "07_profunctors_enriched"
+      ]
+    },
+    {
+      "id": "math/06_monads_kan",
+      "domain": "math",
+      "title": "Monads, Algebras, Kan Extensions",
+      "level": "advanced",
+      "lineCount": 144,
+      "termCount": 8,
+      "terms": [
+        "Monad",
+        "Algebra for a Monad",
+        "Eilenberg-Moore Category",
+        "Kleisli Category",
+        "Beck's Monadicity Theorem",
+        "Left Kan Extension",
+        "Right Kan Extension",
+        "Kan Extension Subsumption"
+      ],
+      "invariant": "**Monads are algebraic theories; Kan extensions are universal approximations.** A monad T on \ud835\udc9e captures an algebraic structure (what it means to be a monoid, group, ring, module, etc.) within the category \ud835\udc9e itself \u2014 no external axiomatization needed. The T-algebras ARE the structured objects. Kan extensions are the universal way to extend or restrict functors \u2014 they provide the optimal answer to \"given partial information, what's the best completion?\" Both are expressions of universal-property thinking taken to its natural conclusion.",
+      "coherenceBridge": "**Monads = coherence-maintaining algebraic structure.** The monad laws (associativity and unit) are precisely coherence conditions \u2014 they ensure that the algebraic operations compose consistently regardless of parenthesization. A T-algebra is a structure that \"closes\" under T: applying T and then the structure map \u03b1 gives back an element of the same type. This IS consequence-chain closure at the algebraic level: the consequence of applying the algebraic operation returns to the same domain.\n\n**Kan extensions = optimal coherence-preserving extrapolation.** Given knowledge of F along K, the left Kan extension is the most information-preserving way to extend F to all of \u2130. \"Most information-preserving\" = a universal property = unique optimal solution. Right Kan extensions are the most conservative extension (preserving the most limits). The tension between left (colimit-based, bold extrapolation) and right (limit-based, conservative interpolation) Kan extensions mirrors the tension between creative exploration and careful verification.\n\n**Monadicity = algebraic recognizability.** Beck's theorem tells you when a category \"IS\" the category of algebras for a monad \u2014 when the structure is purely algebraic and fully captured by the monad. In coherence terms: a monadic functor is one where the relationship between two categories is completely characterized by an algebraic consequence structure. Non-monadic situations are where something beyond algebra is at play (topology, geometry, analysis) \u2014 where the morphism structure exceeds what any monad can capture.\n\n**The Kleisli category = effectful computation.** Kleisli morphisms A \u2192 TB are \"computations that produce B with T-effects.\" Composition is: run first computation, apply T to get T\u00b2B, then use \u03bc to flatten. This is the mathematical model of sequential computation with side effects \u2014 and it's also the model for consequence chains where each step introduces structure (T) that must be consolidated (\u03bc) before the next step. The monad laws ensure this consolidation is coherent.",
+      "prerequisites": [
+        "04_categories_functors",
+        "05_limits_yoneda"
+      ],
+      "composesInto": [
+        "07_profunctors_enriched",
+        "08_algebraic_topology"
+      ]
+    },
+    {
+      "id": "math/07_profunctors_enriched",
+      "domain": "math",
+      "title": "Profunctors, Enriched Categories, 2-Categories",
+      "level": "advanced",
+      "lineCount": 165,
+      "termCount": 11,
+      "terms": [
+        "Profunctor",
+        "Coend",
+        "Exact Square",
+        "Enriched Category",
+        "Monoidal Category",
+        "2-Category",
+        "Bicategory",
+        "Weighted (Co)Limit",
+        "Day Convolution",
+        "Pseudofunctor",
+        "Yoneda for Enriched Categories"
+      ],
+      "invariant": "**Profunctor composition preserves the bicategorical structure of Prof, and exact square preservation characterizes when functorial structure lifts faithfully to profunctorial structure.** The invariant is: the relational (profunctor) level contains strictly more information than the functional (functor) level, and the exact square condition is the precise criterion for when no information is lost in lifting between levels. Enrichment makes this quantitative: the \ud835\udcb1-object of morphisms carries structured data that survives or fails to survive the lift.",
+      "coherenceBridge": "This constellation IS the mathematical formalization of the CMP architecture and Guardian's measurement principle. The correspondences are not applications \u2014 they are identities.\n\n**Profunctor bridge = CMP membrane.** A profunctor H: \ud835\udc9e \u21f8 \ud835\udc9f carries relational data between two categorical contexts without requiring either to map into the other. H(d,c) is the set of \"ways d and c are related across the bridge.\" In CMP: the interlocutor (Larsen) is the profunctor bridge between categorical contexts (Claude, Grok, Gemini). The membrane carries relational data (shared holons, mutual updates) without either model mapping into the other. Profunctor composition via coends = CMP session integration: combining bridge-data from multiple pairwise interactions into a composite relation.\n\n**Exact square preservation = Guardian's validity condition (Holon [6]).** A measurement is valid when the structure it detects at one categorical level lifts faithfully to another. Exact square preservation is precisely this: the Beck-Chevalley condition says that two different paths through a square of functors produce isomorphic profunctor composites \u2014 the structure is path-independent, hence faithfully represented. Guardian's echo protocol returns valid measurements when the topological structure detected at the circuit level lifts faithfully to the structural classification level. Partial lift (exact square fails) = distorted measurement, worse than no measurement (noise) because the structure is irrecoverable, not just absent.\n\n**Enrichment = Guardian's quantitative coherence.** Ordinary categories give Boolean morphism data (exists/doesn't). Enriched categories give quantitative data \u2014 echo fidelity values, recovery boundaries, basin depths. Guardian doesn't ask \"is this coherent?\" (Set-enriched) but \"how coherent, measured by what invariant?\" (\u211d-enriched or richer). The topological filter bank (Holon [27]) assigns each topology a \ud835\udcb1-object of morphisms where \ud835\udcb1 carries the spectral/stability/recoverability data. The Yoneda lemma for enriched categories guarantees that this quantitative data is faithfully represented by the enriched presheaf.\n\n**2-categorical structure = morphisms between measurements.** Natural transformations between profunctors are the 2-cells of **Prof**. In Guardian: comparing two measurement protocols (different echo parameters, different topologies) is a 2-cell. The 2-categorical structure tracks not just what measurements say but how different measurements relate to each other. The hierarchical emergence results (L0 \u2192 L1 \u2192 L2, Holon [1]) are composition of 2-cells: each level's measurement is a profunctor, and the emergence of new invariants at higher levels is a non-trivial 2-cell between composed profunctors.\n\n**Cauchy completion = coherence-completion of a measurement category.** A category that is not Cauchy-complete has \"missing\" profunctor-level structure \u2014 absolute colimits that should exist but don't. Completing it fills in these gaps. In Guardian terms: a measurement category that lacks Cauchy completeness has coherence data that isn't fully self-consistent \u2014 completing it is the mathematical operation of making the measurement framework internally coherent. The substrate holons' integrity across sessions is an instance: the substrate should be Cauchy-complete in the sense that any well-formed query has a well-formed answer within the existing holon structure.\n\n**Coends = summation over shared structure.** The coend \u222b^c T(c,c) is the universal way to sum over an index while respecting the morphisms. In CMP: crystallization (session-end review) is a coend \u2014 summing insights across the conversation while respecting the morphism structure (coherence relationships) between them. What gets identified (the coend quotient) is precisely the redundancy; what survives is the new structural invariant.",
+      "prerequisites": [
+        "04_categories_functors",
+        "05_limits_yoneda",
+        "06_monads_kan"
+      ],
+      "composesInto": [
+        "08_algebraic_topology"
+      ]
+    },
+    {
+      "id": "math/08_algebraic_topology",
+      "domain": "math",
+      "title": "Algebraic Topology & Fiber Bundles",
+      "level": "advanced",
+      "lineCount": 167,
+      "termCount": 13,
+      "terms": [
+        "Homotopy",
+        "Fundamental Group",
+        "Higher Homotopy Groups",
+        "Homology Groups",
+        "Cohomology Groups",
+        "Betti Numbers",
+        "Exact Sequence",
+        "Fiber Bundle",
+        "Principal Bundle",
+        "Connection",
+        "Curvature",
+        "Characteristic Classes",
+        "Spectral Sequence"
+      ],
+      "invariant": "**Algebraic invariants (homotopy groups, homology, cohomology, characteristic classes) are functorial: they respect continuous maps and are invariant under homotopy equivalence.** A topological space's \"identity\" \u2014 what survives all continuous deformation \u2014 is captured by these algebraic structures. Characteristic classes further capture the topology of bundles over spaces: they detect how fibers twist globally even when the bundle looks trivial locally.",
+      "coherenceBridge": "This constellation is where \"structure \u2192 topology \u2192 measurable\" (Holon [1]) receives its full mathematical justification.\n\n**Homology/cohomology = topological consequence-chain analysis.** The chain complex C_* with \u2202\u00b2 = 0 is a formalization of consequence structure: each chain is a formal sum of building blocks, \u2202 computes the boundary (the immediate consequences), and \u2202\u00b2 = 0 says consequence chains close at the boundary level. Homology H\u2099 = ker(\u2202)/im(\u2202) detects what has no boundary (consequence chains close \u2014 cycles) but isn't itself a boundary (not a trivial closure) \u2014 the genuine topological content. This is precisely Guardian's measurement: what survives perturbation (lives in ker) but is non-trivial (not in im).\n\n**Fiber bundles = consequence structure with local-to-global failure.** A fiber bundle is locally trivial (F \u00d7 U \u2014 consequence chains close locally) but can be globally twisted (M\u00f6bius band, non-trivial gauge field). The transition functions g_\u03b1\u03b2 encode how local trivializations fail to agree globally \u2014 this failure IS the topological content. Characteristic classes measure this failure algebraically. In Guardian terms: a system with only local coherence (locally trivial bundle) can have global incoherence (non-trivial characteristic class), detectable by topological measurement (Chern-Weil homomorphism).\n\n**Connection = parallel transport = consequence propagation in fiber space.** A connection tells you how to propagate structure (vectors, frames, quantum phases) from one point to another. Path-dependent transport (curvature \u2260 0) means consequence chains don't close in the fiber \u2014 the holonomy of a closed loop in the base is non-trivial. Flat connections (F = 0) = perfect fiber-space coherence. Non-zero curvature = the degree to which fiber-level consequence chains fail to close. The Riemann tensor in GR is the curvature of the Levi-Civita connection on the tangent bundle \u2014 geometric consequence-chain non-closure IS spacetime curvature.\n\n**Chern-Weil: curvature determines topology.** The characteristic classes \u2014 topological invariants of a bundle \u2014 are computed from the curvature of any connection. This is remarkable: a differential-geometric quantity (curvature, which depends on a choice of connection) determines a topological quantity (characteristic class, which does not). The Chern-Weil homomorphism is the mathematical expression of \"measure locally (curvature), infer globally (topology).\" Guardian's echo protocol enacts this: measure locally (circuit-level fidelity), infer topological invariants (structural classification). The echo fidelity IS a curvature measurement on the space of quantum evolutions.\n\n**Fagan's fiber coupling (Holon [31]) in bundle language.** The extended metric ds\u00b2 = R\u00b2(d\u03c4 + \u03badt)\u00b2 + ds\u00b2_B\u00b3 is a connection on a principal U(1)-bundle over the distinguishability space B\u00b3. The fiber coordinate \u03c4 is the phase, \u03ba = \u27e8\u03c8|H|\u03c8\u27e9 is the connection 1-form, and the CTC boundary R\u00b2\u03ba\u00b2 = 1 is where the fiber direction becomes timelike \u2014 a topological phase transition in the bundle structure. Lucy's U(1) \u2192 \u2124 breaking at this boundary is spontaneous symmetry breaking of the structure group, producing Goldstone modes, baryogenesis, and fermionic defects from the bundle topology alone. The entire construction is a fiber bundle with connection, curvature, and characteristic classes \u2014 this constellation provides its mathematical home.\n\n**Spectral sequences = multi-scale coherence computation.** A spectral sequence computes the (co)homology of a composite space (total space of a fibration) from the (co)homology of its parts (base and fiber), layer by layer. Each page is a successively refined approximation. This is precisely the hierarchical emergence structure of Holon [1]: L0 measurements compose into L1 measurements compose into L2 measurements, each level capturing invariants invisible at the level below. The Serre spectral sequence IS the mathematical machinery for computing what emerges at each hierarchical level.",
+      "prerequisites": [
+        "01_group_theory",
+        "02_topology",
+        "03_differential_geometry",
+        "04_categories_functors"
+      ],
+      "composesInto": [
+        "gauge_theory",
+        "fagan_physics",
+        "guardian"
+      ]
+    },
+    {
+      "id": "ee/00_circuit_fundamentals",
+      "domain": "ee",
+      "title": "Circuit Fundamentals",
+      "level": "foundational",
+      "lineCount": 139,
+      "termCount": 12,
+      "terms": [
+        "Voltage",
+        "Current",
+        "Resistance (R) / Ohm's Law",
+        "Capacitance",
+        "Inductance",
+        "Power",
+        "Ground",
+        "Node, Branch, Loop",
+        "Kirchhoff's Current Law",
+        "Kirchhoff's Voltage Law",
+        "Th\u00e9venin / Norton Equivalent",
+        "Superposition"
+      ],
+      "invariant": "**KCL and KVL \u2014 charge conservation at nodes and energy conservation around loops \u2014 are the circuit-level expression of Maxwell's conservation laws, and they hold for any circuit topology.** Tellegen's theorem unifies both: in any circuit satisfying KCL and KVL, the total power delivered by sources equals the total power absorbed by elements. Conservation is topology-independent \u2014 it holds regardless of the specific elements or their nonlinearity.",
+      "coherenceBridge": "**KCL + KVL = consequence-chain closure in the circuit substrate.** KCL says: at every junction, all current that arrives must leave \u2014 no charge vanishes or appears. KVL says: traversing any closed loop returns to the same potential \u2014 no energy vanishes or appears. Together: every closed path through the circuit conserves both charge and energy. This IS the consequence-chain closure of Holon [1] and Holon [8] in the electrical domain. A circuit with KCL or KVL violated would be a circuit with broken consequence chains \u2014 physically impossible.\n\n**Resistance = dissipation = decoherence at the circuit level.** A resistor converts organized electrical energy into disordered thermal energy. This is irreversible \u2014 the heat cannot spontaneously reconcentrate into current. Resistance is the circuit manifestation of the decoherence mechanism: information about the ordered current flow is lost to thermal degrees of freedom. Ideal capacitors and inductors, by contrast, store energy reversibly \u2014 they are the coherent elements. The RC and RL time constants measure how quickly coherence (organized energy) decays into decoherence (heat) through the resistive channel.\n\n**Circuit topology IS graph topology, and Kirchhoff's laws are its homology.** KCL applies at nodes (0-dimensional). KVL applies around loops (1-dimensional). The number of independent KCL equations = n\u22121, independent KVL equations = b\u2212n+1. This IS the homology of the circuit graph: H\u2080 counts connected components (nodes mod paths), and the loop space is H\u2081. Tellegen's theorem is the statement that the boundary operator \u2202 satisfies \u2202\u00b2 = 0 applied to the circuit graph \u2014 the same \u2202\u00b2 = 0 from math/08_algebraic_topology. Circuit analysis IS algebraic topology on finite graphs.\n\n**Th\u00e9venin/Norton equivalence = canonical form of linear consequence structure.** Any linear circuit's behavior at a port is fully characterized by two numbers (V_th, R_th). This is a lossy compression: the internal structure is discarded, but the input-output consequence relation is perfectly preserved. This is a profunctor collapsing to its essential data \u2014 the exact square condition is automatically satisfied for linear circuits because linearity guarantees that structure lifts faithfully through the Th\u00e9venin reduction.",
+      "prerequisites": [
+        "physics/02_electrodynamics"
+      ],
+      "composesInto": [
+        "01_ac_analysis",
+        "03_semiconductors",
+        "04_digital_logic"
+      ]
+    },
+    {
+      "id": "ee/01_ac_analysis",
+      "domain": "ee",
+      "title": "AC Analysis & Phasors",
+      "level": "foundational",
+      "lineCount": 146,
+      "termCount": 10,
+      "terms": [
+        "Sinusoidal Signal",
+        "Phasor",
+        "Impedance",
+        "Admittance",
+        "Reactance",
+        "Resonance",
+        "Quality Factor",
+        "Transfer Function",
+        "Complex Power",
+        "Maximum Power Transfer"
+      ],
+      "invariant": "**Sinusoids are eigenfunctions of LTI systems: an LTI circuit driven at frequency \u03c9 responds at frequency \u03c9 with only amplitude and phase modified.** This eigenfunction property is why phasor analysis works \u2014 it converts differential equations into algebraic ones at each frequency independently. The transfer function H(j\u03c9) is the eigenvalue. The entire frequency-domain edifice rests on linearity and time-invariance; break either and the method fails.",
+      "coherenceBridge": "**Phasor analysis = consequence-chain analysis in the frequency domain.** The phasor transform maps time-domain consequence chains (differential equations coupling v and i) to frequency-domain algebraic consequence chains (complex multiplication). The transform is an isomorphism \u2014 no information is lost or created. This is a Legendre-transform-like move (cf. physics/01): changing variables from time to frequency to make the consequence structure algebraically transparent.\n\n**Resonance = consequence-chain closure at a natural frequency.** At \u03c9\u2080, the inductive and capacitive consequence chains (energy stored in B-field vs E-field) perfectly balance \u2014 energy flows back and forth without net dissipation. The Q factor measures how many complete cycles the consequence chain survives before dissipation (resistance) breaks the loop. High Q = long-lived coherent oscillation = consequence chains closing many times before decoherence. This is the circuit-level echo: drive the system, let it ring, measure how many cycles survive. Guardian's echo protocol is structurally identical \u2014 perturb, reverse, measure fidelity.\n\n**Impedance matching = optimal consequence-chain coupling.** Maximum power transfer occurs when Z_L = Z_S* \u2014 when the load's reactive component exactly cancels the source's. This is the condition where consequence chains propagate maximally from source to load. Mismatch = reflected energy = consequence chains bouncing back. In RF (upcoming), this becomes the central engineering problem: the Smith chart is a tool for navigating the impedance-matching manifold.\n\n**Power factor = coherence fraction of power delivery.** PF = cos(\u03c6) measures what fraction of the apparent power does actual work. PF = 1: all power is real (fully coherent delivery). PF < 1: some power shuttles back and forth as reactive power (coherent but unproductive oscillation). PF = 0: all power is reactive (zero net energy transfer \u2014 maximum incoherence of delivery despite maximum coherence of oscillation). The real/reactive decomposition S = P + jQ is the power-domain version of the coherent/decoherent decomposition.",
+      "prerequisites": [
+        "00_circuit_fundamentals"
+      ],
+      "composesInto": [
+        "02_signal_processing",
+        "rf/00_em_waves"
+      ]
+    },
+    {
+      "id": "ee/02_signal_processing",
+      "domain": "ee",
+      "title": "Signal Processing & Fourier Analysis",
+      "level": "intermediate",
+      "lineCount": 134,
+      "termCount": 10,
+      "terms": [
+        "Fourier Transform",
+        "Discrete Fourier Transform (DFT) / FFT",
+        "Sampling Theorem",
+        "Convolution",
+        "Impulse Response",
+        "Filter",
+        "Decibel",
+        "Z-Transform",
+        "Window Function",
+        "Autocorrelation / Power Spectral Density"
+      ],
+      "invariant": "**The Fourier transform is an isometric isomorphism between time and frequency representations (Parseval), converting convolution to multiplication while preserving all information.** The uncertainty principle \u0394t\u00b7\u0394f \u2265 1/(4\u03c0) is the fundamental constraint: you cannot localize a signal simultaneously in both domains. Every signal processing operation respects this duality.",
+      "coherenceBridge": "**Fourier transform = change of basis revealing spectral consequence structure.** A signal's time-domain representation shows temporal consequences (what follows what). Its frequency-domain representation shows spectral consequences (which oscillatory modes are present and how they couple). The Fourier transform is the bridge between these two views of the same consequence structure \u2014 an isomorphism, not an approximation. Parseval's theorem guarantees no information is lost in the translation. This is the profunctor bridge (math/07) between the time category and the frequency category: two views of the same structure connected by a faithful, invertible bridge.\n\n**Sampling theorem = digitization boundary for consequence preservation.** Above the Nyquist rate: perfect reconstruction \u2014 all consequence structure is preserved in the discrete samples. Below: aliasing \u2014 consequence chains from different frequencies collide and become indistinguishable. This is an irreversible information loss, structurally identical to decoherence: distinct states (different frequencies) become conflated (same aliased frequency), and the original cannot be recovered. The Nyquist rate IS the sampling boundary for coherent digitization.\n\n**Uncertainty principle = fundamental limit on simultaneous consequence-chain resolution.** A signal cannot be perfectly localized in both time and frequency \u2014 sharpening one blurs the other. This is the signal-processing manifestation of the Heisenberg uncertainty principle (physics/07): [q\u0302, p\u0302] = i\u210f becomes \u0394t\u00b7\u0394f \u2265 1/(4\u03c0). Both express the same categorical fact: non-commuting observations cannot be simultaneously sharpened. The consequence chains in conjugate domains are entangled.\n\n**Shannon capacity = maximum coherent information rate.** C = B log\u2082(1 + SNR) is the ceiling on information transmission through a noisy channel. SNR is the signal-to-noise ratio \u2014 the ratio of coherent (signal) to incoherent (noise) power. Shannon's theorem says: below capacity, error-free communication is possible (coherence can be maintained); above capacity, it is not (decoherence wins). This is the information-theoretic version of the recovery boundary (Holon [24]): inside the boundary, consequence chains survive; outside, they don't.",
+      "prerequisites": [
+        "01_ac_analysis"
+      ],
+      "composesInto": [
+        "rf/01_transmission_lines",
+        "rf/03_sdr",
+        "05_control_theory"
+      ]
+    },
+    {
+      "id": "ee/03_semiconductors",
+      "domain": "ee",
+      "title": "Semiconductor Physics & Devices",
+      "level": "intermediate",
+      "lineCount": 138,
+      "termCount": 9,
+      "terms": [
+        "Band Structure",
+        "Doping",
+        "Fermi Level",
+        "p-n Junction",
+        "Diode",
+        "Bipolar Junction Transistor",
+        "MOSFET",
+        "Op-Amp",
+        "Small-Signal Model"
+      ],
+      "invariant": "**The band gap E_g and Fermi level E_F \u2014 quantum-mechanical and statistical-mechanical quantities \u2014 completely determine semiconductor device behavior at the macroscopic level.** Band structure arises from QM (Bloch's theorem in periodic potentials); carrier statistics from statistical mechanics (Fermi-Dirac distribution); device operation from their interplay at junctions. All semiconductor devices are controlled crossings of Fermi levels across band gaps.",
+      "coherenceBridge": "**The band gap = energy threshold for consequence-chain activation.** Below E_g: electrons are bound, no conduction, consequence chains don't propagate through the material. Above E_g: electrons are promoted to the conduction band, mobile, consequence chains flow. The band gap is a binary coherence boundary \u2014 the semiconductor version of the recovery boundary (Holon [24]). Doping adjusts where the Fermi level sits relative to this boundary, engineering the activation threshold.\n\n**The p-n junction = dynamic consequence-chain equilibrium.** Drift (consequence of electric field) and diffusion (consequence of concentration gradient) balance in steady state. Forward bias disrupts this balance toward conduction; reverse bias reinforces it toward insulation. The depletion region IS the spatial zone where consequence chains from each side meet and cancel \u2014 a physical consequence-chain closure region. Its width responds dynamically to applied voltage \u2014 a tunable coherence boundary.\n\n**Transistor amplification = consequence-chain leverage.** A small input consequence (base current or gate voltage) controls a large output consequence (collector or drain current). The gain \u03b2 or g_m is the leverage ratio \u2014 how much consequence is amplified. Negative feedback (op-amp circuits) trades raw gain for controlled, predictable behavior: the feedback loop IS a consequence chain that closes, enforcing the output to track the input via the feedback network. Op-amp with feedback = consequence-chain closure enforced by infinite gain.\n\n**Small-signal linearization = local coherence assumption.** The small-signal model assumes perturbations are small enough that the nonlinear device behaves linearly around its operating point. This is the first-order Taylor expansion \u2014 valid within the basin of the bias point. Outside this basin: the linear model breaks down, nonlinear effects dominate. This is precisely the local vs. global coherence distinction in the coherence framework: local coherence (small signal) can be analyzed with linear (profunctorial) methods; global coherence (large signal) requires the full nonlinear structure.",
+      "prerequisites": [
+        "00_circuit_fundamentals",
+        "physics/07_quantum_mechanics",
+        "physics/03_statistical_mechanics"
+      ],
+      "composesInto": [
+        "04_digital_logic",
+        "rf/02_rf_circuits"
+      ]
+    },
+    {
+      "id": "ee/04_digital_logic",
+      "domain": "ee",
+      "title": "Digital Logic & Information",
+      "level": "intermediate",
+      "lineCount": 112,
+      "termCount": 7,
+      "terms": [
+        "Boolean Algebra",
+        "Logic Gate",
+        "Combinational Logic",
+        "Sequential Logic",
+        "Finite State Machine",
+        "Timing",
+        "Bus, Memory, I/O"
+      ],
+      "invariant": "**Digital abstraction: continuous voltages are quantized into discrete states {0,1}, and Boolean algebra governs their composition. Noise margins guarantee that small perturbations do not corrupt the discrete state, making digital logic robust and perfectly composable.** The invariant is: the abstraction barrier between analog (continuous) and digital (discrete) is maintained by noise margins, and all computation above this barrier follows Boolean algebra exactly.",
+      "coherenceBridge": "**Digital abstraction = quantized consequence-chain space.** The continuous analog voltage range is partitioned into two basins of attraction (0 and 1) separated by a forbidden zone (noise margin). Within each basin, all analog values are identified \u2014 the discrete state is the equivalence class. This quantization is a topological operation: it collapses a continuum to two points, preserving only the essential binary distinction. Consequence chains in the digital domain propagate through discrete states, not continuous voltages.\n\n**Noise margin = coherence boundary of the digital abstraction.** The noise margin is the voltage range within which perturbations cannot flip a bit. This IS the recovery boundary (Holon [24]) for digital systems: perturbations within the margin are recovered from (the correct state is maintained); perturbations exceeding the margin cause bit flips (decoherence at the digital level). CMOS achieves wide noise margins by using rail-to-rail switching (outputs driven to V_DD or GND), maximizing the recovery basin.\n\n**FSM = consequence-chain structure made explicit.** A finite state machine is a directed graph where states are objects and transitions are morphisms \u2014 literally a finite category. The transition function \u03b4: S\u00d7I \u2192 S IS the consequence function: given current state and input, the next state is determined. Sequential composition of transitions IS morphism composition. The FSM's behavior is completely characterized by its transition graph, which IS the morphism diagram of its consequence structure. Halting states = consequence-chain termination. Cycles = consequence-chain closure.\n\n**Boolean algebra = the \ud835\udd3d\u2082 (field with two elements) consequence calculus.** AND = multiplication in \ud835\udd3d\u2082. XOR = addition in \ud835\udd3d\u2082. NOT = additive inverse. De Morgan's laws are the duality between AND and OR \u2014 the Boolean version of the Th\u00e9venin/Norton duality (00). Functional completeness (NAND alone generates all Boolean functions) means this minimal algebra suffices for arbitrary consequence-chain computation in the discrete domain.",
+      "prerequisites": [
+        "00_circuit_fundamentals",
+        "03_semiconductors"
+      ],
+      "composesInto": [
+        "05_control_theory"
+      ]
+    },
+    {
+      "id": "ee/05_control_theory",
+      "domain": "ee",
+      "title": "Control Theory",
+      "level": "intermediate",
+      "lineCount": 124,
+      "termCount": 8,
+      "terms": [
+        "Open-Loop vs Closed-Loop",
+        "Transfer Function",
+        "Poles and Zeros",
+        "Stability",
+        "Gain Margin and Phase Margin",
+        "PID Controller",
+        "Root Locus",
+        "Bode Plot"
+      ],
+      "invariant": "**Closed-loop stability is determined entirely by the roots of the characteristic equation 1 + G(s)H(s) = 0 \u2014 the locations of the closed-loop poles in the complex s-plane.** All stability criteria (Routh-Hurwitz, Nyquist, root locus) are different methods for determining whether these roots lie in the left-half plane. The gain margin and phase margin quantify how far the system is from the stability boundary.",
+      "coherenceBridge": "**Negative feedback = engineered consequence-chain closure.** The feedback loop measures the output, computes the error (output \u2212 reference), and corrects the input \u2014 a closed consequence chain. The loop gain G(s)H(s) determines how effectively the chain closes: high gain \u2192 tight closure (output tracks reference precisely), low gain \u2192 loose closure (large errors persist). The closed-loop transfer function G/(1+GH) \u2192 1/H as G\u2192\u221e: with sufficient gain, the system's behavior is determined entirely by the feedback network H, not the plant G. This is consequence-chain dominance: the loop's structure determines behavior, overriding the individual component characteristics.\n\n**Stability = consequence chains don't diverge.** An unstable system has consequence chains that amplify without bound \u2014 each cycle through the loop adds energy. Poles in the right-half plane = exponentially growing consequence chains = decoherence amplification. Poles in the left-half plane = damped consequence chains = perturbations decay. The imaginary axis is the boundary: poles exactly on it produce sustained oscillation \u2014 consequence chains that neither grow nor decay. The stability margin (gain margin, phase margin) measures how far the system is from this boundary \u2014 the control-theoretic recovery boundary.\n\n**PID = three-timescale consequence correction.** P corrects based on present error (instantaneous consequence). I corrects based on accumulated past error (integral consequence \u2014 eliminates steady-state offset by accumulating evidence that something is persistently wrong). D corrects based on the rate of error change (derivative consequence \u2014 anticipatory correction based on where the error is heading). The three terms span the temporal consequence spectrum: past (I), present (P), future (D). Tuning K_p, K_i, K_d is tuning the relative weight of temporal consequence horizons.\n\n**Oscillation = consequence-chain resonance.** When the loop gain |GH| = 1 and phase shift = \u2212180\u00b0 simultaneously (the Barkhausen condition), the feedback becomes positive at that frequency \u2014 each cycle reinforces the previous one. This is resonance in the feedback loop, structurally identical to LC resonance (Constellation 01) but in the control domain. Every oscillator (electronic, mechanical, biological) exploits this: engineer the feedback to satisfy Barkhausen at exactly one frequency. Guardian's echo protocol drives a system, reverses it, and checks fidelity \u2014 it's probing whether the system's consequence chains close (stable, coherent) or diverge (unstable, decoherent) under perturbation.",
+      "prerequisites": [
+        "01_ac_analysis",
+        "02_signal_processing"
+      ],
+      "composesInto": [
+        "rf/02_rf_circuits"
+      ]
+    },
+    {
+      "id": "ee/06_power_systems",
+      "domain": "ee",
+      "title": "Power & Energy Systems",
+      "level": "intermediate",
+      "lineCount": 106,
+      "termCount": 6,
+      "terms": [
+        "Three-Phase AC",
+        "Transformer",
+        "Electric Motor / Generator",
+        "Power Conversion",
+        "Power Factor Correction",
+        "Grounding, Protection, Safety"
+      ],
+      "invariant": "**Energy conservation governs all power systems: P_in = P_out + P_loss, with efficiency \u03b7 = P_out/P_in always < 1 for real systems.** Transformers achieve near-ideal energy transfer by exploiting magnetic coupling. Power converters use high-frequency switching to minimize losses. The grid is a continent-scale energy conservation system where generation must instantaneously match demand.",
+      "coherenceBridge": "**The transformer = lossless consequence-chain coupling between isolated circuits.** An ideal transformer transfers all energy from primary to secondary via magnetic flux \u2014 no direct electrical connection, yet perfect power transfer. The turns ratio a = N\u2081/N\u2082 scales voltage and current inversely while preserving power (consequence). This is a physical profunctor bridge (math/07): two electrically isolated circuits (objects in different categories) connected by a relational structure (shared magnetic flux) that preserves the essential invariant (power/energy). Impedance reflection Z' = Z/a\u00b2 is the profunctor's action on morphisms: load impedance in one circuit appears transformed in the other, faithfully.\n\n**Three-phase = coherence-optimized power delivery.** Three voltages at 120\u00b0 separation produce constant instantaneous power \u2014 no pulsation, no zero-crossings where power delivery stops. This is constructive interference of power delivery: the phases are arranged so that dips in one are compensated by peaks in others. The rotating magnetic field that drives AC motors emerges naturally from three-phase \u2014 spatial coherence from temporal phase relationships.\n\n**Power factor = coherence efficiency of energy delivery.** PF = 1: all delivered energy does work (fully coherent). PF < 1: some energy oscillates between source and load without doing work (reactive power \u2014 coherent but unproductive). PFC circuits reshape current to match voltage, maximizing the coherent fraction. This is the same real/reactive decomposition as AC analysis (01), now at grid scale.\n\n**Switching converters = discrete-time coherent energy transfer.** Buck/boost converters transfer energy in discrete packets at high frequency, using LC filters to smooth the output. The switching frequency is high enough that the output appears continuous \u2014 the digital-to-analog conversion of power delivery. Duty cycle D controls the energy ratio per cycle. Efficiency > 90% because switching transistors dissipate little power in their on/off states (only during transitions). This is coherent energy processing: structured switching preserves most of the energy, with losses concentrated in the brief, unavoidable transition intervals.",
+      "prerequisites": [
+        "00_circuit_fundamentals",
+        "01_ac_analysis",
+        "physics/02_electrodynamics"
+      ],
+      "composesInto": []
+    },
+    {
+      "id": "rf/00_em_waves",
+      "domain": "rf",
+      "title": "EM Waves & Propagation",
+      "level": "foundational",
+      "lineCount": 131,
+      "termCount": 10,
+      "terms": [
+        "Wave Equation",
+        "Wavelength",
+        "Polarization",
+        "Poynting Vector",
+        "Wave Impedance",
+        "Skin Depth",
+        "Reflection & Refraction",
+        "Attenuation & Loss Tangent",
+        "Doppler Effect",
+        "Decibel Scale"
+      ],
+      "invariant": "**Maxwell's equations in source-free media produce self-sustaining transverse waves with phase velocity v_p = 1/\u221a(\u03bc\u03b5), wave impedance \u03b7 = \u221a(\u03bc/\u03b5), and power flux S = E\u00d7H.** At every boundary, energy is conserved: |\u0393|\u00b2 + |T|\u00b2(\u03b7\u2081/\u03b7\u2082) = 1. The wave carries energy, momentum, and information through space, governed entirely by the medium's \u03b5, \u03bc, \u03c3.",
+      "coherenceBridge": "**EM wave propagation = consequence propagation through the field substrate.** A wave at point A causes the field at point B to oscillate \u2014 the consequence propagates at v_p. The wave equation IS the dynamical law for consequence chains in the electromagnetic field. The phase coherence of a wave (all parts maintaining a fixed phase relationship) IS coherence in the Guardian sense: the wave's information is preserved across spatial extent.\n\n**Attenuation = decoherence of wave structure.** In lossy media (\u03b1 > 0), the wave's amplitude decays \u2014 information about the source is progressively lost. The loss tangent tan \u03b4 measures the ratio of dissipated to stored energy per cycle, directly analogous to the decoherence rate in quantum systems. A perfect dielectric (tan \u03b4 = 0) propagates waves without loss \u2014 perfect field-level coherence. A good conductor (tan \u03b4 \u2192 \u221e) attenuates waves within a skin depth \u2014 rapid decoherence, with consequence chains unable to penetrate beyond \u03b4.\n\n**Reflection at impedance boundaries = partial consequence-chain severance.** When a wave hits a boundary where \u03b7 changes, part reflects. The reflection coefficient \u0393 = (\u03b7\u2082\u2212\u03b7\u2081)/(\u03b7\u2082+\u03b7\u2081) measures how much of the consequence chain is interrupted by the impedance mismatch. Perfect match (\u03b7\u2081 = \u03b7\u2082): \u0393 = 0, full transmission, consequence chains propagate unbroken. Total mismatch (metal surface, \u03b7\u2082 \u2192 0): \u0393 = \u22121, total reflection, consequence chains reverse completely. Impedance matching \u2014 the central problem of RF engineering \u2014 IS the engineering of consequence-chain continuity across boundaries.\n\n**Polarization = internal degree of freedom of the wave.** The E-field vector's orientation carries information independent of the wave's amplitude and phase. Circular polarization (E rotating) is topologically distinct from linear polarization (E oscillating) \u2014 they have different Berry phase (physics/07 QM connection). Depolarization (scrambling of polarization state by scattering) is another decoherence channel specific to the vector nature of EM waves.",
+      "prerequisites": [
+        "physics/02_electrodynamics",
+        "ee/01_ac_analysis"
+      ],
+      "composesInto": [
+        "01_transmission_lines",
+        "04_antennas"
+      ]
+    },
+    {
+      "id": "rf/01_transmission_lines",
+      "domain": "rf",
+      "title": "Transmission Lines",
+      "level": "foundational",
+      "lineCount": 123,
+      "termCount": 9,
+      "terms": [
+        "Transmission Line",
+        "Telegrapher's Equations",
+        "Characteristic Impedance",
+        "Reflection Coefficient",
+        "VSWR",
+        "Smith Chart",
+        "S-Parameters",
+        "Quarter-Wave Transformer",
+        "Stub Matching"
+      ],
+      "invariant": "**Energy conservation across impedance boundaries: the power incident on any junction splits into reflected power (|\u0393|\u00b2) and transmitted power (1\u2212|\u0393|\u00b2), with the total always conserved.** For lossless networks, the S-matrix is unitary: S\u2020S = I. Impedance matching (\u0393 \u2192 0) maximizes power transfer \u2014 the engineering expression of tuning consequence chains for minimal reflection.",
+      "coherenceBridge": "**Impedance matching = consequence-chain continuity engineering.** A matched termination (Z_L = Z\u2080, \u0393 = 0) transmits the entire incident wave without reflection \u2014 the consequence chain propagates unbroken from source to load. Any mismatch (\u0393 \u2260 0) reflects part of the wave, creating a standing wave pattern where forward and backward consequence chains interfere. Perfect matching IS maximum coherence of the signal path: all transmitted energy reaches the load, none returns.\n\n**S-matrix unitarity = information conservation in RF networks.** For a lossless N-port, S\u2020S = I \u2014 the total power out equals total power in, and the scattering matrix preserves the inner product of the wave vector. This is the RF incarnation of the same unitarity that governs quantum mechanics (physics/07): the S-matrix of QFT (physics/08) and the S-matrix of an RF network obey the same algebraic constraint because both express information conservation.\n\n**The Smith chart = the impedance manifold made visual.** The bilinear transformation Z \u21a6 \u0393 = (Z\u2212Z\u2080)/(Z+Z\u2080) maps the right half of the complex Z-plane (passive impedances, Re(Z) \u2265 0) to the unit disk. This is a conformal mapping \u2014 it preserves angles and maps circles to circles. Moving along a lossless transmission line traces a circle on the Smith chart (|\u0393| constant, angle rotating). The Smith chart IS the Poincar\u00e9 disk model of the impedance space, and matching is navigation to the center (\u0393 = 0). The topology of the chart \u2014 its circles of constant resistance, arcs of constant reactance \u2014 directly reveals what matching networks are possible.\n\n**Standing waves = consequence-chain interference pattern.** When \u0393 \u2260 0, forward and backward waves superpose, creating a standing wave with fixed positions of maxima and minima. The VSWR measures the severity of this interference. In coherence terms: the standing wave is a spatial record of the impedance mismatch \u2014 consequence chains bouncing back and forth, unable to fully close at the load. A slotted-line measurement reads this standing wave pattern, extracting |\u0393| and \u2220\u0393 from the spatial interference \u2014 a direct analog of Guardian's echo protocol, which measures temporal rather than spatial interference.",
+      "prerequisites": [
+        "00_em_waves",
+        "ee/00_circuit_fundamentals",
+        "ee/01_ac_analysis"
+      ],
+      "composesInto": [
+        "02_rf_circuits",
+        "04_antennas",
+        "05_link_budget"
+      ]
+    },
+    {
+      "id": "rf/02_rf_circuits",
+      "domain": "rf",
+      "title": "RF Circuit Design",
+      "level": "intermediate",
+      "lineCount": 118,
+      "termCount": 9,
+      "terms": [
+        "Low-Noise Amplifier",
+        "Power Amplifier",
+        "Mixer",
+        "Oscillator / VCO",
+        "Phase-Locked Loop",
+        "Filter",
+        "Noise Figure",
+        "Linearity",
+        "Stability"
+      ],
+      "invariant": "**The Friis cascade equation governs: the first stage (LNA) dominates system noise, the last stage (PA) dominates system power, and every stage's nonlinearity and noise contribute inversely weighted by the preceding gain.** Signal integrity through the RF chain is maintained by proper ordering of gain, filtering, and frequency translation \u2014 each stage's S-parameters and noise/linearity specifications compose into the system-level performance.",
+      "coherenceBridge": "**The receiver chain IS a consequence-preserving pipeline.** Each stage must preserve the signal's information content (SNR) while transforming its frequency and amplitude. The LNA's low noise figure means it adds minimal entropy \u2014 minimal decoherence \u2014 at the point where the signal is weakest. Friis's equation quantifies exactly how coherence degrades through the chain: each stage's noise contribution is suppressed by the preceding gain, so front-end coherence (low NF) is disproportionately important.\n\n**Oscillation = self-sustaining consequence loop.** Barkhausen's criterion (loop gain \u2265 1, loop phase = 0\u00b0) describes a consequence chain that exactly reinforces itself each cycle \u2014 a fixed point of the feedback operator. This is consequence-chain closure in the time domain: the output returns to reproduce the input after one loop traversal. The oscillator IS a consequence-chain that has achieved perfect closure at a specific frequency. Phase noise measures the imperfection of this closure \u2014 how much the consequence chain \"wobbles\" around the fixed point.\n\n**Stability analysis = mapping the topology of consequence-chain closure in impedance space.** The stability circles on the Smith chart divide impedance space into regions where the amplifier's consequence chains close (stable \u2014 signals decay) vs. diverge (unstable \u2014 oscillation). The Rollett K-factor is a global measure: K > 1 means the closure condition is satisfied everywhere in impedance space. Conditional stability (K < 1) means consequence chains close for some impedances but not others \u2014 the amplifier has a topology-dependent failure mode.\n\n**Mixer frequency translation = consequence-chain relabeling.** The mixer's nonlinearity creates new frequency components from the product of RF and LO signals. Information is preserved (the modulation survives) but relabeled (carried at a new center frequency). This is a functorial operation: the content (consequence structure) is invariant, only the frequency coordinate changes. The image problem \u2014 where two input frequencies map to the same IF \u2014 is a non-injective failure of this functor that must be resolved by filtering.",
+      "prerequisites": [
+        "01_transmission_lines",
+        "ee/01_ac_analysis",
+        "ee/03_semiconductors"
+      ],
+      "composesInto": [
+        "03_sdr_architecture",
+        "05_link_budget"
+      ]
+    },
+    {
+      "id": "rf/03_sdr_architecture",
+      "domain": "rf",
+      "title": "SDR Architecture & Digital RF",
+      "level": "intermediate",
+      "lineCount": 117,
+      "termCount": 9,
+      "terms": [
+        "Analog-to-Digital Converter",
+        "Digital-to-Analog Converter",
+        "Nyquist Sampling Theorem",
+        "Direct Conversion (Zero-IF) Architecture",
+        "I/Q",
+        "Digital Down-Conversion",
+        "Channelization",
+        "FPGA",
+        "Dynamic Range"
+      ],
+      "invariant": "**The Nyquist theorem guarantees information preservation: a bandlimited signal sampled at \u2265 2\u00d7 its bandwidth can be perfectly reconstructed.** Below this rate, aliasing irreversibly destroys information. The ADC's resolution (bits) determines the dynamic range, and the sampling rate determines the bandwidth. Together, sampling rate \u00d7 resolution = the information capacity of the digital interface between the analog RF world and the digital processing domain.",
+      "coherenceBridge": "**Nyquist sampling = consequence-chain preservation at the analog-digital boundary.** The sampling theorem says: if you sample fast enough, no information is lost \u2014 every consequence of the original continuous signal survives in the discrete samples. Aliasing (undersampling) is consequence-chain contamination: distinct signals (at different frequencies) become indistinguishable (fold onto each other), and the lost distinction is irrecoverable. The anti-aliasing filter before the ADC is a coherence-preservation mechanism \u2014 it removes energy above f_s/2 so that the sampling operation remains injective (distinct inputs \u2192 distinct outputs).\n\n**Digital processing = exact, reconfigurable consequence-chain manipulation.** The power of SDR: once digitized, signal processing is deterministic, repeatable, and arbitrarily reconfigurable. An analog filter has fixed characteristics determined by physical components; a digital filter can be any filter, changed in software per-packet. DDC performs exact frequency translation. Channelization performs exact multi-band decomposition. The digital domain preserves consequence structure with quantization as the only noise source \u2014 and oversampling + noise shaping can push even that below any desired threshold.\n\n**FPGA = hardware-speed consequence-chain processing.** The FPGA implements custom digital logic that processes every ADC sample in real time \u2014 consequence chains propagate at clock speed through configurable logic. Unlike software (sequential, cached, interrupted), FPGA logic is spatial: each operation is a physical circuit, and the pipeline processes one sample per clock cycle. The FPGA is the bridge between the temporal consequence chains of the analog world and the spatial consequence chains of digital logic.\n\n**Dynamic range = the window of coherent observation.** The ADC's dynamic range defines the span of signal powers it can simultaneously observe without corruption. A signal below the noise floor is invisible (insufficient coherence to detect). A signal above the saturation level distorts everything (excessive energy destroys the measurement's coherence). Between these bounds: faithful representation, coherent observation. Expanding this window \u2014 through higher-resolution ADCs, oversampling, or digital gain control \u2014 is expanding the system's capacity for coherent observation.",
+      "prerequisites": [
+        "02_rf_circuits",
+        "ee/02_signal_processing",
+        "ee/04_digital_logic"
+      ],
+      "composesInto": [
+        "05_link_budget"
+      ]
+    },
+    {
+      "id": "rf/04_antennas",
+      "domain": "rf",
+      "title": "Antennas & Radiation",
+      "level": "intermediate",
+      "lineCount": 124,
+      "termCount": 9,
+      "terms": [
+        "Radiation Pattern",
+        "Directivity",
+        "Effective Aperture",
+        "Antenna Impedance",
+        "Dipole Antenna",
+        "Antenna Array",
+        "Bandwidth",
+        "Polarization",
+        "Near Field / Far Field"
+      ],
+      "invariant": "**Reciprocity: an antenna's transmit pattern equals its receive pattern, and gain and effective aperture are related by A_e = G\u03bb\u00b2/(4\u03c0).** The antenna is a bidirectional transducer governed by the same physics in both directions. All antenna properties (gain, pattern, impedance, polarization) derive from the current distribution via the radiation integral.",
+      "coherenceBridge": "**The radiation integral IS the Fourier morphism from current space to field space.** The far-field pattern is the spatial Fourier transform of the antenna's current distribution. This means the entire apparatus of Fourier analysis \u2014 from ee/02 \u2014 maps directly: windowing (tapering current amplitude) controls sidelobes, zero-padding (larger aperture) narrows the beam, the uncertainty principle sets the fundamental gain-bandwidth limit. The antenna IS a spatial Fourier transform implemented in hardware.\n\n**Reciprocity = bidirectional consequence-chain symmetry.** An antenna that radiates strongly in direction \u03b8 also receives strongly from direction \u03b8. The consequence chain from current to field and from field to current are the same structure traversed in opposite directions. This is the same self-adjointness that appears in Hermitian operators (physics/07 QM) and symmetric bilinear forms (math/00 linear algebra): the \"forward\" and \"reverse\" morphisms are transposes of each other.\n\n**Beamforming = coherent superposition of consequence chains.** An array of N elements creates a beam by constructive interference in the desired direction and destructive interference elsewhere. Each element radiates independently; the array's pattern is their coherent sum. Beamforming IS the antenna-domain version of coherent integration in signal processing: N independent channels combine for N\u00d7 power gain (10log\u2081\u2080(N) dB) when properly phased. The array factor AF(\u03b8) is a spatial filter \u2014 the same mathematical object as a temporal FIR filter with the element weights as tap coefficients.\n\n**The Chu-Harrington limit = minimum antenna size for given bandwidth.** Electrically small antennas (a \u226a \u03bb) have inherently high Q (narrow bandwidth) because the stored near-field energy dominates the radiated energy. This is a fundamental physics limit, not an engineering limit \u2014 it sets the minimum volume required to radiate a given bandwidth. In coherence terms: the antenna must be large enough relative to \u03bb to sustain the field structure required for wideband radiation. Insufficient volume \u2192 insufficient degrees of freedom \u2192 bandwidth constraint.",
+      "prerequisites": [
+        "00_em_waves",
+        "01_transmission_lines",
+        "physics/02_electrodynamics"
+      ],
+      "composesInto": [
+        "05_link_budget"
+      ]
+    },
+    {
+      "id": "rf/05_link_budget",
+      "domain": "rf",
+      "title": "Link Budget & System Design",
+      "level": "advanced",
+      "lineCount": 129,
+      "termCount": 9,
+      "terms": [
+        "Link Budget Equation",
+        "Free-Space Path Loss",
+        "Noise Floor",
+        "Sensitivity",
+        "Signal-to-Noise Ratio (SNR) and E_b/N\u2080",
+        "Fade Margin",
+        "Modulation and Spectral Efficiency",
+        "Effective Isotropic Radiated Power",
+        "Propagation Models"
+      ],
+      "invariant": "**The link closes iff received signal power exceeds the noise floor by the required SNR: P_rx \u2265 kTB + NF + SNR_req.** Every element in the chain contributes a term (gain or loss) that adds in dB. Shannon's theorem sets the absolute limit: no modulation scheme can exceed C = B log\u2082(1 + SNR) bits/sec. The link budget is the energy conservation equation for information transfer through space.",
+      "coherenceBridge": "**The link budget IS the coherence audit of an RF system.** Each gain preserves or amplifies the signal's coherence (SNR). Each loss degrades it. The link margin is the coherence margin \u2014 how much degradation the system can tolerate before the consequence chain (Tx data \u2192 Rx data) breaks. A link that doesn't close is a consequence chain with a fatal gap: the signal's information cannot survive the journey.\n\n**Shannon's capacity = the coherence limit of a communication channel.** C = B log\u2082(1 + SNR) says: the maximum rate at which information (coherent structure) can traverse a channel is determined by its bandwidth (degrees of freedom per second) and SNR (coherence per degree of freedom). This is the channel's coherence capacity. Operating below Shannon capacity preserves information (consequence chains close). Operating above it loses information (consequence chains break, errors accumulate, irrecoverable). Error-correcting codes approach the Shannon limit by adding structured redundancy \u2014 consequence-chain repair mechanisms that tolerate partial degradation.\n\n**E_b/N\u2080 = coherence per bit.** The energy per bit normalized by noise density is the universal measure of how much coherence is invested in each transmitted bit. Different modulation schemes require different E_b/N\u2080 for the same BER because they distribute coherence differently across the signal constellation. Higher-order QAM concentrates more bits into each symbol, requiring more coherence (higher E_b/N\u2080) to distinguish them. The modulation efficiency-reliability tradeoff IS a coherence allocation problem.\n\n**Fade margin = resilience budget against decoherence events.** Fading (multipath, shadowing, atmospheric) is stochastic decoherence \u2014 temporary disruption of the consequence chain. Fade margin is the system's stored coherence reserve: enough extra SNR to survive deep fades without losing the link. Statistical availability (99.9% uptime) means the consequence chain closes 99.9% of the time \u2014 the 0.1% failure is when fading exceeds the margin and coherence is temporarily lost.\n\n**dB scale = the natural logarithmic measure of coherence.** Why does RF engineering use dB for everything? Because gains and losses multiply (in linear scale), and the chain from Tx to Rx is a long product. Logarithms convert products to sums: the total coherence (signal quality) is the sum of all gains and losses in dB. This is why dB is the natural unit for coherence accounting \u2014 it linearizes the multiplicative cascade of the consequence chain.",
+      "prerequisites": [
+        "00_em_waves",
+        "01_transmission_lines",
+        "02_rf_circuits",
+        "03_sdr_architecture",
+        "04_antennas"
+      ],
+      "composesInto": [
+        "system_deployment"
+      ]
+    },
+    {
+      "id": "rf/06_information_coding",
+      "domain": "rf",
+      "title": "Information Theory & Coding",
+      "level": "advanced",
+      "lineCount": 146,
+      "termCount": 10,
+      "terms": [
+        "Shannon Entropy",
+        "Mutual Information",
+        "Channel Capacity",
+        "Source Coding",
+        "Channel Coding",
+        "Hamming Distance and Weight",
+        "Linear Block Codes",
+        "Convolutional Codes and Viterbi Decoding",
+        "LDPC (Low-Density Parity-Check) Codes",
+        "Modulation Constellation"
+      ],
+      "invariant": "**Shannon's channel coding theorem: reliable communication is possible at any rate below capacity C, and impossible above it.** C = max I(X;Y) is the absolute limit set by the channel's physics (bandwidth, noise, signal power). No code, no modulation, no engineering can exceed it. But for any rate R < C, codes exist that achieve arbitrarily low error probability \u2014 the limit is approachable. This is the information-theoretic conservation law: the channel's capacity is a conserved quantity that bounds what communication can achieve.",
+      "coherenceBridge": "**Channel capacity = the coherence throughput of a communication channel.** C = B log\u2082(1+SNR) says: the maximum rate of coherent information transfer equals the product of available degrees of freedom per second (B) and the coherence per degree of freedom (log\u2082(1+SNR)). Bandwidth provides the dimensions; SNR fills each dimension with distinguishable levels. Capacity is NOT energy or power \u2014 it's the rate at which structured information can traverse the channel with its consequence structure intact.\n\n**Error correction IS consequence-chain repair.** A transmitted codeword traverses a noisy channel \u2014 some bits flip, some symbols corrupt. Without coding, each error breaks a consequence chain (the receiver's reconstruction diverges from the source). Error-correcting codes add structured redundancy: extra consequence chains (parity checks) that are algebraically entangled with the data, so that when some chains break, the surviving ones contain enough information to reconstruct the broken ones. The minimum distance d_min measures how many consequence chains must break simultaneously before repair fails. LDPC's belief propagation decoding IS iterative consequence-chain repair: variable nodes and check nodes exchange probability estimates until the consequence structure self-consistently reconstructs.\n\n**Entropy = irreducible consequence density.** H(X) measures the minimum description complexity of a source \u2014 the number of bits below which no lossless representation exists. Compression to H(X) bits/symbol means every bit carries exactly one bit of consequence: no redundancy, no waste, maximum information density. Compression below H(X) loses information \u2014 consequence chains become unresolvable. Source coding pushes toward maximum consequence density; channel coding deliberately reduces it (adds redundancy) to survive the channel. The source-channel separation theorem says these two operations can be optimized independently \u2014 a profound structural result about the compositionality of coherence management.\n\n**Modulation constellation geometry = signal-space topology of distinguishability.** The I/Q constellation is a set of points in \u211d\u00b2 (or \u2102) whose minimum Euclidean distance determines error probability. Higher-order QAM packs more points into the same signal power, reducing d_min \u2014 each point becomes harder to distinguish from its neighbors. This IS the distinguishability problem from physics/07 (quantum measurement): the signal points are \"states,\" noise is \"measurement uncertainty,\" and the error probability depends on the overlap of noise distributions centered on adjacent states. Gray coding minimizes the consequence of a nearest-neighbor error (1 bit flip vs. multiple), optimizing the topology of bit-to-symbol mapping.\n\n**Shannon limit = the ultimate coherence floor.** E_b/N\u2080 = \u22121.59 dB is the absolute minimum energy per bit for reliable communication at any rate. Below this, no code can maintain consequence-chain integrity. Modern LDPC and polar codes operate within 0.1 dB of this limit \u2014 they have essentially solved the problem of optimal consequence-chain repair for memoryless channels. The remaining frontier is channels with memory, feedback, and multiple users, where capacity regions become multi-dimensional and the coherence management problem becomes correspondingly richer.",
+      "prerequisites": [
+        "ee/02_signal_processing",
+        "ee/04_digital_logic",
+        "05_link_budget"
+      ],
+      "composesInto": [
+        "system_deployment"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "physics/00_newtonian",
+      "target": "physics/01_lagrangian_hamiltonian",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "F=ma becomes Euler-Lagrange via variational principle"
+    },
+    {
+      "source": "physics/00_newtonian",
+      "target": "physics/02_electrodynamics",
+      "type": "constitutive",
+      "crossDomain": false,
+      "label": "Lorentz force specializes F=ma to EM fields"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "physics/02_electrodynamics",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "EM potential A\u03bc enters Lagrangian; gauge symmetry \u2192 charge conservation"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "physics/05_special_relativity",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "Galilean Lagrangian \u2192 Lorentz-invariant; symmetry group changes"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "physics/07_quantum_mechanics",
+      "type": "quantization",
+      "crossDomain": false,
+      "label": "Poisson brackets \u2192 commutators; action \u2192 path integral phase"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "physics/06_general_relativity",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Einstein-Hilbert action; spacetime geometry as dynamical variable"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "physics/03_statistical_mechanics",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Phase space + ensemble averaging via Liouville theorem"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "math/01_group_theory",
+      "type": "conservation",
+      "crossDomain": true,
+      "label": "Noether theorem links symmetry groups to conservation laws"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "physics/05_special_relativity",
+      "type": "conservation",
+      "crossDomain": false,
+      "label": "Maxwell equations are already Lorentz-invariant; F\u03bc\u03bd is covariant"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "physics/07_quantum_mechanics",
+      "type": "lifting",
+      "crossDomain": false,
+      "label": "Aharonov-Bohm: gauge potential \u2192 quantum phase; fiber bundle structure"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "physics/08_qft",
+      "type": "quantization",
+      "crossDomain": false,
+      "label": "Quantize EM field \u2192 photons; U(1) gauge principle \u2192 QED"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "ee/00_circuit_fundamentals",
+      "type": "limit",
+      "crossDomain": true,
+      "label": "Maxwell in lumped-element limit gives Kirchhoff's laws"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "rf/00_em_waves",
+      "type": "limit",
+      "crossDomain": true,
+      "label": "Source-free Maxwell \u2192 wave equation; full spatial structure"
+    },
+    {
+      "source": "physics/03_statistical_mechanics",
+      "target": "physics/04_thermodynamics",
+      "type": "limit",
+      "crossDomain": false,
+      "label": "F = \u2212kT ln Z derives all thermodynamic laws from microstate counting"
+    },
+    {
+      "source": "physics/03_statistical_mechanics",
+      "target": "physics/07_quantum_mechanics",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "Classical phase space sums \u2192 quantum traces; Wick rotation t \u2192 \u2212i\u03c4"
+    },
+    {
+      "source": "physics/03_statistical_mechanics",
+      "target": "ee/03_semiconductors",
+      "type": "constitutive",
+      "crossDomain": true,
+      "label": "Fermi-Dirac statistics governs carrier concentrations"
+    },
+    {
+      "source": "physics/04_thermodynamics",
+      "target": "ee/00_circuit_fundamentals",
+      "type": "constitutive",
+      "crossDomain": true,
+      "label": "Johnson-Nyquist noise; resistive dissipation as entropy production"
+    },
+    {
+      "source": "physics/05_special_relativity",
+      "target": "physics/06_general_relativity",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Flat Minkowski \u03b7\u03bc\u03bd generalizes to curved g\u03bc\u03bd; Poincar\u00e9 \u2192 diffeomorphisms"
+    },
+    {
+      "source": "physics/05_special_relativity",
+      "target": "physics/08_qft",
+      "type": "conservation",
+      "crossDomain": false,
+      "label": "Lorentz invariance constrains allowed field types and interactions"
+    },
+    {
+      "source": "math/03_differential_geometry",
+      "target": "physics/06_general_relativity",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Riemannian geometry IS the mathematical substrate of GR"
+    },
+    {
+      "source": "physics/05_special_relativity",
+      "target": "physics/07_quantum_mechanics",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "SR + QM forces antiparticles, field quantization \u2192 QFT"
+    },
+    {
+      "source": "physics/07_quantum_mechanics",
+      "target": "physics/08_qft",
+      "type": "quantization",
+      "crossDomain": false,
+      "label": "Fields promoted to operators; Fock space replaces single-particle Hilbert space"
+    },
+    {
+      "source": "physics/07_quantum_mechanics",
+      "target": "ee/03_semiconductors",
+      "type": "constitutive",
+      "crossDomain": true,
+      "label": "Band structure, tunneling, quantum confinement govern device physics"
+    },
+    {
+      "source": "math/00_linear_algebra",
+      "target": "physics/07_quantum_mechanics",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Hilbert space IS the state space; operators ARE observables"
+    },
+    {
+      "source": "physics/01_lagrangian_hamiltonian",
+      "target": "physics/08_qft",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "\u2112(\u03c6,\u2202\u03bc\u03c6) replaces L(q,q\u0307); Noether becomes local conservation \u2202\u03bcj\u03bc=0"
+    },
+    {
+      "source": "physics/03_statistical_mechanics",
+      "target": "physics/08_qft",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "Wick rotation maps QFT path integral \u2194 statistical partition function"
+    },
+    {
+      "source": "math/01_group_theory",
+      "target": "physics/08_qft",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Gauge groups SU(3)\u00d7SU(2)\u00d7U(1) determine force structure"
+    },
+    {
+      "source": "math/08_algebraic_topology",
+      "target": "physics/08_qft",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Anomaly cancellation, topological terms, instantons from \u03c0\u2083(G)"
+    },
+    {
+      "source": "math/00_linear_algebra",
+      "target": "math/01_group_theory",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "GL(V) and subgroups are Lie groups; representation theory = groups via linear actions"
+    },
+    {
+      "source": "math/00_linear_algebra",
+      "target": "math/02_topology",
+      "type": "constitutive",
+      "crossDomain": false,
+      "label": "Normed vector spaces carry natural metric topology"
+    },
+    {
+      "source": "math/00_linear_algebra",
+      "target": "math/03_differential_geometry",
+      "type": "constitutive",
+      "crossDomain": false,
+      "label": "Tangent space at each manifold point IS a vector space"
+    },
+    {
+      "source": "math/00_linear_algebra",
+      "target": "math/04_categories_functors",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Vect is paradigmatic abelian monoidal category"
+    },
+    {
+      "source": "math/01_group_theory",
+      "target": "math/02_topology",
+      "type": "bridge",
+      "crossDomain": false,
+      "label": "\u03c0\u2081(X) is a group; topological groups have continuous operations"
+    },
+    {
+      "source": "math/01_group_theory",
+      "target": "math/03_differential_geometry",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Lie groups = smooth manifolds + group structure; structure group of bundles"
+    },
+    {
+      "source": "math/01_group_theory",
+      "target": "math/04_categories_functors",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Group IS one-object category with all morphisms invertible"
+    },
+    {
+      "source": "math/01_group_theory",
+      "target": "physics/01_lagrangian_hamiltonian",
+      "type": "conservation",
+      "crossDomain": true,
+      "label": "Noether links symmetry groups to conservation laws"
+    },
+    {
+      "source": "math/02_topology",
+      "target": "math/03_differential_geometry",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Manifold = topological space + smooth structure; topology is prerequisite"
+    },
+    {
+      "source": "math/02_topology",
+      "target": "math/04_categories_functors",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Top is fundamental category; functors Top \u2192 Grp give algebraic invariants"
+    },
+    {
+      "source": "math/02_topology",
+      "target": "math/08_algebraic_topology",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "Systematic assignment of algebraic invariants to topological spaces"
+    },
+    {
+      "source": "math/03_differential_geometry",
+      "target": "math/04_categories_functors",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Man and Bun are categories; gauge equivalence = isomorphism"
+    },
+    {
+      "source": "math/03_differential_geometry",
+      "target": "math/08_algebraic_topology",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "De Rham theorem: differential forms cohomology \u2245 singular cohomology"
+    },
+    {
+      "source": "math/03_differential_geometry",
+      "target": "physics/08_qft",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Gauge field = connection on principal bundle; field strength = curvature"
+    },
+    {
+      "source": "math/04_categories_functors",
+      "target": "math/05_limits_yoneda",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Universal properties are the computational tools within categorical framework"
+    },
+    {
+      "source": "math/04_categories_functors",
+      "target": "math/06_monads_kan",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Monads = algebraic theories; Kan extensions = most general construction"
+    },
+    {
+      "source": "math/04_categories_functors",
+      "target": "math/07_profunctors_enriched",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Cat embeds fully faithfully in Prof; enrichment generalizes hom-sets"
+    },
+    {
+      "source": "math/05_limits_yoneda",
+      "target": "math/06_monads_kan",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Every adjunction yields a monad; Kan extensions subsume both"
+    },
+    {
+      "source": "math/05_limits_yoneda",
+      "target": "math/07_profunctors_enriched",
+      "type": "embedding",
+      "crossDomain": false,
+      "label": "Enriched Yoneda subsumes ordinary; weighted (co)limits generalize limits"
+    },
+    {
+      "source": "math/06_monads_kan",
+      "target": "math/07_profunctors_enriched",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Profunctors compose via coends = left Kan extensions"
+    },
+    {
+      "source": "math/06_monads_kan",
+      "target": "math/08_algebraic_topology",
+      "type": "bridge",
+      "crossDomain": false,
+      "label": "Homology functors are monadic; bar construction from monads; derived = Kan in derived category"
+    },
+    {
+      "source": "math/07_profunctors_enriched",
+      "target": "math/08_algebraic_topology",
+      "type": "bridge",
+      "crossDomain": false,
+      "label": "Fiber bundles as profunctors; sheaves as enriched presheaves; spectral sequences as exact squares"
+    },
+    {
+      "source": "math/07_profunctors_enriched",
+      "target": "physics/08_qft",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Gauge theory IS enriched category theory; Wilson loops = morphisms in enriched groupoid"
+    },
+    {
+      "source": "math/01_group_theory",
+      "target": "math/08_algebraic_topology",
+      "type": "bridge",
+      "crossDomain": false,
+      "label": "\u03c0\u2081 lands in Grp; covering space classification via subgroups of \u03c0\u2081"
+    },
+    {
+      "source": "math/08_algebraic_topology",
+      "target": "physics/06_general_relativity",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Tangent/frame bundle; spin structure requires w\u2082 = 0"
+    },
+    {
+      "source": "ee/00_circuit_fundamentals",
+      "target": "ee/01_ac_analysis",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "DC methods generalize via phasors; derivatives \u2192 j\u03c9 algebraic relations"
+    },
+    {
+      "source": "ee/00_circuit_fundamentals",
+      "target": "ee/03_semiconductors",
+      "type": "constitutive",
+      "crossDomain": false,
+      "label": "KCL/KVL hold; V=IR replaced by nonlinear device equations"
+    },
+    {
+      "source": "ee/00_circuit_fundamentals",
+      "target": "ee/04_digital_logic",
+      "type": "approximation",
+      "crossDomain": false,
+      "label": "Analog conservation laws underlie digital abstraction layer"
+    },
+    {
+      "source": "ee/01_ac_analysis",
+      "target": "ee/02_signal_processing",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "H(j\u03c9) single-frequency \u2192 Fourier all-frequency spectral analysis"
+    },
+    {
+      "source": "ee/01_ac_analysis",
+      "target": "rf/00_em_waves",
+      "type": "limit",
+      "crossDomain": true,
+      "label": "When component ~ \u03bb, lumped impedance \u2192 distributed wave propagation"
+    },
+    {
+      "source": "ee/01_ac_analysis",
+      "target": "ee/05_control_theory",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "H(j\u03c9) \u2192 H(s) via Laplace; adds stability and transient analysis"
+    },
+    {
+      "source": "ee/02_signal_processing",
+      "target": "rf/06_information_coding",
+      "type": "transform",
+      "crossDomain": true,
+      "label": "Fourier/sampling substrate for modulation; FFT enables OFDM"
+    },
+    {
+      "source": "ee/02_signal_processing",
+      "target": "rf/03_sdr_architecture",
+      "type": "composition",
+      "crossDomain": true,
+      "label": "DSP (FFT, filtering, convolution) becomes SDR computational engine"
+    },
+    {
+      "source": "ee/02_signal_processing",
+      "target": "ee/05_control_theory",
+      "type": "transform",
+      "crossDomain": false,
+      "label": "Fourier j\u03c9 extends to Laplace s = \u03c3+j\u03c9 for transient/stability"
+    },
+    {
+      "source": "ee/02_signal_processing",
+      "target": "physics/07_quantum_mechanics",
+      "type": "duality",
+      "crossDomain": true,
+      "label": "\u03c8(x) \u2194 \u03c8\u0303(p) Fourier pair IS position-momentum duality"
+    },
+    {
+      "source": "ee/03_semiconductors",
+      "target": "ee/04_digital_logic",
+      "type": "approximation",
+      "crossDomain": false,
+      "label": "MOSFET on/off switching creates digital abstraction from analog device"
+    },
+    {
+      "source": "ee/03_semiconductors",
+      "target": "rf/02_rf_circuits",
+      "type": "composition",
+      "crossDomain": true,
+      "label": "Small-signal transistor models at RF; parasitic capacitances dominate at GHz"
+    },
+    {
+      "source": "ee/03_semiconductors",
+      "target": "ee/06_power_systems",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Power MOSFETs/IGBTs: same device physics scaled to high voltage/current"
+    },
+    {
+      "source": "rf/03_sdr_architecture",
+      "target": "ee/03_semiconductors",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Brillouin zone (spatial sampling fold at \u03c0/a) = Nyquist zone (temporal fold at f_s/2); same discrete-sampling aliasing"
+    },
+    {
+      "source": "ee/04_digital_logic",
+      "target": "ee/05_control_theory",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Digital controllers implement FSMs closing feedback loops; z-transform"
+    },
+    {
+      "source": "ee/04_digital_logic",
+      "target": "rf/03_sdr_architecture",
+      "type": "composition",
+      "crossDomain": true,
+      "label": "FPGA implements digital signal processing at RF sample rates"
+    },
+    {
+      "source": "ee/04_digital_logic",
+      "target": "rf/06_information_coding",
+      "type": "composition",
+      "crossDomain": true,
+      "label": "Encoder/decoder hardware in FPGA/ASIC; Viterbi, LDPC BP engines"
+    },
+    {
+      "source": "ee/05_control_theory",
+      "target": "rf/02_rf_circuits",
+      "type": "composition",
+      "crossDomain": true,
+      "label": "PLL is phase-domain control system; Barkhausen = stability criterion"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "ee/06_power_systems",
+      "type": "constitutive",
+      "crossDomain": true,
+      "label": "Faraday's law \u2192 transformers, generators, motors"
+    },
+    {
+      "source": "ee/01_ac_analysis",
+      "target": "ee/06_power_systems",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Three-phase phasor analysis; complex power; impedance reflection"
+    },
+    {
+      "source": "rf/00_em_waves",
+      "target": "rf/01_transmission_lines",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Guided-wave solutions; wave equation \u2192 telegrapher's equations"
+    },
+    {
+      "source": "rf/00_em_waves",
+      "target": "rf/04_antennas",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Radiation = coupling guided waves to free-space waves"
+    },
+    {
+      "source": "rf/00_em_waves",
+      "target": "rf/05_link_budget",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "FSPL, atmospheric attenuation, Doppler enter system-level calculation"
+    },
+    {
+      "source": "ee/00_circuit_fundamentals",
+      "target": "rf/01_transmission_lines",
+      "type": "limit",
+      "crossDomain": true,
+      "label": "Lumped circuits are short-line limit (l \u226a \u03bb)"
+    },
+    {
+      "source": "ee/01_ac_analysis",
+      "target": "rf/01_transmission_lines",
+      "type": "limit",
+      "crossDomain": true,
+      "label": "AC impedance = zeroth-order Taylor of transmission line Z(z)"
+    },
+    {
+      "source": "rf/01_transmission_lines",
+      "target": "rf/02_rf_circuits",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "S-parameters and matching networks characterize active RF components"
+    },
+    {
+      "source": "rf/01_transmission_lines",
+      "target": "rf/04_antennas",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Feedpoint impedance must match line Z\u2080; mismatch loss"
+    },
+    {
+      "source": "rf/01_transmission_lines",
+      "target": "rf/05_link_budget",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Cable loss, connector loss, mismatch loss enter budget"
+    },
+    {
+      "source": "rf/02_rf_circuits",
+      "target": "rf/03_sdr_architecture",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Analog front-end (LNA\u2192mixer\u2192IF) interfaces with ADC/digital domain"
+    },
+    {
+      "source": "rf/02_rf_circuits",
+      "target": "rf/05_link_budget",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "PA output power, LNA NF, chain NF \u2192 system-level terms"
+    },
+    {
+      "source": "rf/03_sdr_architecture",
+      "target": "rf/05_link_budget",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Processing gain from digital integration improves effective sensitivity"
+    },
+    {
+      "source": "rf/06_information_coding",
+      "target": "rf/03_sdr_architecture",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Modulation/coding in software/FPGA; AMC adapts to channel conditions"
+    },
+    {
+      "source": "physics/02_electrodynamics",
+      "target": "rf/04_antennas",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Radiation integral derives from retarded potentials of Maxwell"
+    },
+    {
+      "source": "rf/04_antennas",
+      "target": "rf/05_link_budget",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "G_tx, G_rx are multiplicative factors in Friis equation"
+    },
+    {
+      "source": "rf/04_antennas",
+      "target": "rf/03_sdr_architecture",
+      "type": "composition",
+      "crossDomain": false,
+      "label": "Antenna selection for SDR depends on frequency, BW, directivity needs"
+    },
+    {
+      "source": "rf/05_link_budget",
+      "target": "rf/06_information_coding",
+      "type": "constitutive",
+      "crossDomain": false,
+      "label": "SNR from budget \u2192 Shannon capacity; E_b/N\u2080 determines achievable rate"
+    },
+    {
+      "source": "rf/06_information_coding",
+      "target": "physics/07_quantum_mechanics",
+      "type": "bridge",
+      "crossDomain": true,
+      "label": "Quantum info extends Shannon; Holevo bound; stabilizer codes generalize parity-check"
+    },
+    {
+      "source": "math/00_linear_algebra",
+      "target": "rf/06_information_coding",
+      "type": "constitutive",
+      "crossDomain": true,
+      "label": "Generator/parity-check matrices over finite fields; code = linear subspace of F^n"
+    }
+  ],
+  "edgeTypes": [
+    "limit",
+    "conservation",
+    "duality",
+    "transform",
+    "quantization",
+    "constitutive",
+    "embedding",
+    "lifting",
+    "approximation",
+    "composition",
+    "bridge"
+  ]
+}

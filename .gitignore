@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local server caches
+.cache/
+.parcel-cache/
+
+# Optional Node artifacts (this project is build-free, but in case a contributor adds tooling)
+node_modules/
+dist/
+build/
+
+# Environment
+.env
+.env.local

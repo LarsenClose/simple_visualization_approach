@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grokking: Relational Constellation Network (2D)</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- D3.js v7 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+
+  <!-- marked.js for markdown rendering in panels -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+
+  <!-- Local styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER BAR (fixed top) ===== -->
+  <header id="header">
+    <div class="header-left">
+      <h1 class="header-title">Grokking: Relational Constellation Network</h1>
+      <p class="header-subtitle" id="header-subtitle">
+        <span id="stat-nodes">--</span> constellations &middot;
+        <span id="stat-domains">4</span> domains &middot;
+        <span id="stat-edges">--</span> typed morphisms
+      </p>
+      <a href="index.html" class="view-switch-link" style="font-size:11px;color:#8b949e;text-decoration:none;margin-top:2px;">Switch to 3D view</a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Domain filter toggle buttons -->
+      <div class="domain-filters" id="domain-filters">
+        <button class="domain-toggle active" data-domain="physics" aria-label="Toggle physics domain">
+          <span class="domain-indicator" style="background-color: #5B8DEF;"></span>
+          <span class="domain-label">Physics</span>
+        </button>
+        <button class="domain-toggle active" data-domain="math" aria-label="Toggle math domain">
+          <span class="domain-indicator" style="background-color: #EF5B5B;"></span>
+          <span class="domain-label">Math</span>
+        </button>
+        <button class="domain-toggle active" data-domain="ee" aria-label="Toggle EE domain">
+          <span class="domain-indicator" style="background-color: #5BEF7B;"></span>
+          <span class="domain-label">EE</span>
+        </button>
+        <button class="domain-toggle active" data-domain="rf" aria-label="Toggle RF domain">
+          <span class="domain-indicator" style="background-color: #EFB85B;"></span>
+          <span class="domain-label">RF</span>
+        </button>
+      </div>
+
+      <!-- Search input -->
+      <div class="search-container">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5.5" stroke="#888" stroke-width="1.5"/>
+          <line x1="10.5" y1="10.5" x2="15" y2="15" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search constellations, terms..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="search-clear" id="search-clear" aria-label="Clear search" style="display: none;">&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 2D GRAPH CONTAINER (fills viewport below header) ===== -->
+  <div id="graph-container">
+    <svg id="graph-svg">
+      <defs>
+        <marker id="arrowhead-default" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3 L 0 6 Z" fill="#888"/>
+        </marker>
+        <marker id="arrowhead-physics" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3 L 0 6 Z" fill="#5B8DEF"/>
+        </marker>
+        <marker id="arrowhead-math" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3 L 0 6 Z" fill="#EF5B5B"/>
+        </marker>
+        <marker id="arrowhead-ee" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3 L 0 6 Z" fill="#5BEF7B"/>
+        </marker>
+        <marker id="arrowhead-rf" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3 L 0 6 Z" fill="#EFB85B"/>
+        </marker>
+        <marker id="arrowhead-cross" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3 L 0 6 Z" fill="rgba(255,255,255,0.5)"/>
+        </marker>
+        <filter id="glow-physics" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feFlood flood-color="#5B8DEF" flood-opacity="0.4" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="glow"/>
+          <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-math" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feFlood flood-color="#EF5B5B" flood-opacity="0.4" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="glow"/>
+          <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-ee" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feFlood flood-color="#5BEF7B" flood-opacity="0.4" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="glow"/>
+          <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-rf" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feFlood flood-color="#EFB85B" flood-opacity="0.4" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="glow"/>
+          <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-keystone" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+          <feFlood flood-color="#ffffff" flood-opacity="0.25" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="glow"/>
+          <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="text-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#000" flood-opacity="0.9"/>
+        </filter>
+      </defs>
+      <g id="graph-layer">
+        <g id="edges-layer"></g>
+        <g id="nodes-layer"></g>
+      </g>
+    </svg>
+
+    <!-- Tooltip (positioned absolutely, follows cursor) -->
+    <div id="tooltip" class="tooltip" style="display: none;">
+      <div class="tooltip-title" id="tooltip-title"></div>
+      <div class="tooltip-body" id="tooltip-body"></div>
+    </div>
+  </div>
+
+  <!-- ===== SIDE PANEL (right side, 400px, initially hidden) ===== -->
+  <aside id="side-panel" class="side-panel">
+    <button class="panel-close" id="panel-close" aria-label="Close panel">&times;</button>
+
+    <!-- Domain badge -->
+    <div class="panel-domain-badge" id="panel-domain-badge">
+      <span class="domain-dot" id="panel-domain-dot"></span>
+      <span class="domain-name" id="panel-domain-name"></span>
+    </div>
+
+    <!-- Title + level -->
+    <h2 class="panel-title" id="panel-title"></h2>
+    <div class="panel-level" id="panel-level"></div>
+
+    <!-- Sections (scrollable) -->
+    <div class="panel-content" id="panel-content">
+      <!-- Terms as pills/tags -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Terms</h3>
+        <div class="panel-terms" id="panel-terms"></div>
+      </section>
+
+      <!-- Constellation Invariant -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Constellation Invariant</h3>
+        <div class="panel-text" id="panel-invariant"></div>
+      </section>
+
+      <!-- Coherence Bridge -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Coherence Bridge</h3>
+        <div class="panel-text" id="panel-coherence-bridge"></div>
+      </section>
+
+      <!-- Connected Constellations (clickable) -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Connected Constellations</h3>
+        <div class="panel-connections" id="panel-connections"></div>
+      </section>
+    </div>
+  </aside>
+
+  <!-- ===== LEGEND (bottom-left fixed) ===== -->
+  <div id="legend" class="legend">
+    <div class="legend-title">Legend</div>
+
+    <!-- Domain colors -->
+    <div class="legend-section">
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #5B8DEF;"></span>
+        <span class="legend-label">Physics</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #EF5B5B;"></span>
+        <span class="legend-label">Math</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #5BEF7B;"></span>
+        <span class="legend-label">EE</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #EFB85B;"></span>
+        <span class="legend-label">RF</span>
+      </div>
+    </div>
+
+    <!-- Line styles -->
+    <div class="legend-section">
+      <div class="legend-item">
+        <span class="legend-line-sample" style="border-top: 2px solid rgba(255,255,255,0.4);width:20px;display:inline-block;vertical-align:middle;margin-right:6px;"></span>
+        <span class="legend-label">Same-domain edge</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-line-sample" style="border-top: 2px dashed rgba(255,255,255,0.25);width:20px;display:inline-block;vertical-align:middle;margin-right:6px;"></span>
+        <span class="legend-label">Cross-domain edge</span>
+      </div>
+    </div>
+
+    <!-- Node size -->
+    <div class="legend-section">
+      <div class="legend-item">
+        <span class="legend-label" style="font-style:italic;opacity:0.7;">Node size = term count</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STATS OVERLAY (bottom-right) ===== -->
+  <div id="stats-overlay" class="stats-overlay">
+    <div class="stats-row">
+      <span class="stats-label">Nodes</span>
+      <span class="stats-value" id="stats-nodes">--</span>
+    </div>
+    <div class="stats-row">
+      <span class="stats-label">Edges</span>
+      <span class="stats-value" id="stats-edges">--</span>
+    </div>
+    <div class="stats-row">
+      <span class="stats-label">Cross-domain</span>
+      <span class="stats-value" id="stats-cross-domain">--</span>
+    </div>
+  </div>
+
+  <!-- Local 2D application logic -->
+  <script src="app-2d.js"></script>
+</body>
+</html>

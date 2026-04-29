@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grokking: Relational Constellation Network</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%235B8DEF'/><circle cx='16' cy='16' r='6' fill='%230d1117'/><circle cx='16' cy='16' r='3' fill='%235B8DEF'/></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- D3.js v7 (for d3.json, d3.forceX/Y/Z constructors) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+
+  <!-- 3d-force-graph (bundles Three.js internally, exposes ForceGraph3D global) -->
+  <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
+
+  <!-- marked.js for markdown rendering in panels -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+
+  <!-- Local styles -->
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+  <!-- ===== HEADER BAR (fixed top) ===== -->
+  <header id="header">
+    <div class="header-left">
+      <h1 class="header-title">Grokking: Relational Constellation Network</h1>
+      <p class="header-subtitle" id="header-subtitle">
+        <span id="stat-nodes">--</span> constellations &middot;
+        <span id="stat-domains">4</span> domains &middot;
+        <span id="stat-edges">--</span> typed morphisms
+      </p>
+      <a href="index-2d.html" class="view-switch-link">Switch to 2D view &rarr;</a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Domain filter toggle buttons -->
+      <div class="domain-filters" id="domain-filters">
+        <button class="domain-toggle active" data-domain="physics" aria-label="Toggle physics domain">
+          <span class="domain-indicator" style="background-color: #5B8DEF;"></span>
+          <span class="domain-label">Physics</span>
+        </button>
+        <button class="domain-toggle active" data-domain="math" aria-label="Toggle math domain">
+          <span class="domain-indicator" style="background-color: #EF5B5B;"></span>
+          <span class="domain-label">Math</span>
+        </button>
+        <button class="domain-toggle active" data-domain="ee" aria-label="Toggle EE domain">
+          <span class="domain-indicator" style="background-color: #5BEF7B;"></span>
+          <span class="domain-label">EE</span>
+        </button>
+        <button class="domain-toggle active" data-domain="rf" aria-label="Toggle RF domain">
+          <span class="domain-indicator" style="background-color: #EFB85B;"></span>
+          <span class="domain-label">RF</span>
+        </button>
+      </div>
+
+      <!-- Search input -->
+      <div class="search-container">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5.5" stroke="#888" stroke-width="1.5"/>
+          <line x1="10.5" y1="10.5" x2="15" y2="15" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search constellations, terms..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="search-clear" id="search-clear" aria-label="Clear search" style="display: none;">&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 3D GRAPH CONTAINER (fills viewport below header) ===== -->
+  <div id="graph-container">
+    <div id="graph-3d"></div>
+
+    <!-- View controls (top-right, below header) -->
+    <div id="view-controls" class="view-controls">
+      <button class="view-btn" id="btn-view-top" title="Top view (Z-axis)">Top</button>
+      <button class="view-btn" id="btn-view-front" title="Front view (Y-axis)">Front</button>
+      <button class="view-btn" id="btn-view-side" title="Side view (X-axis)">Side</button>
+      <span class="view-divider"></span>
+      <button class="view-btn" id="btn-flatten" title="Collapse Z-axis to 2D">Flatten</button>
+    </div>
+
+    <!-- Tooltip (positioned absolutely, follows cursor) -->
+    <div id="tooltip" class="tooltip" style="display: none;">
+      <div class="tooltip-title" id="tooltip-title"></div>
+      <div class="tooltip-body" id="tooltip-body"></div>
+    </div>
+  </div>
+
+  <!-- ===== SIDE PANEL (right side, 400px, initially hidden) ===== -->
+  <aside id="side-panel" class="side-panel">
+    <button class="panel-expand" id="panel-expand" aria-label="Expand panel" title="Expand panel">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M1 8H15M8 1V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="panel-expand-icon-plus"/>
+        <path d="M15 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="panel-expand-icon-minus" style="display:none"/>
+      </svg>
+    </button>
+    <button class="panel-close" id="panel-close" aria-label="Close panel">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Domain badge -->
+    <div class="panel-domain-badge" id="panel-domain-badge">
+      <span class="domain-dot" id="panel-domain-dot"></span>
+      <span class="domain-name" id="panel-domain-name"></span>
+    </div>
+
+    <!-- Title + level -->
+    <h2 class="panel-title" id="panel-title"></h2>
+    <div class="panel-level" id="panel-level"></div>
+
+    <!-- Sections (scrollable) -->
+    <div class="panel-content" id="panel-content">
+      <!-- Terms as pills/tags -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Terms</h3>
+        <div class="panel-terms" id="panel-terms"></div>
+      </section>
+
+      <!-- Constellation Invariant -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Constellation Invariant</h3>
+        <div class="panel-text" id="panel-invariant"></div>
+      </section>
+
+      <!-- Coherence Bridge -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Coherence Bridge</h3>
+        <div class="panel-text" id="panel-coherence-bridge"></div>
+      </section>
+
+      <!-- Connected Constellations (clickable) -->
+      <section class="panel-section">
+        <h3 class="panel-section-title">Connected Constellations</h3>
+        <div class="panel-connections" id="panel-connections"></div>
+      </section>
+    </div>
+  </aside>
+
+  <!-- ===== LEGEND (bottom-left fixed) ===== -->
+  <div id="legend" class="legend">
+    <div class="legend-header">
+      <div class="legend-title">Legend</div>
+      <button class="legend-toggle" id="legend-toggle" aria-label="Toggle legend">
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+          <path d="M1 5L5 1L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Domain colors -->
+    <div class="legend-section">
+      <div class="legend-section-label">Domains</div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #5B8DEF;"></span>
+        <span class="legend-label">Physics</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #EF5B5B;"></span>
+        <span class="legend-label">Math</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #5BEF7B;"></span>
+        <span class="legend-label">EE</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background-color: #EFB85B;"></span>
+        <span class="legend-label">RF</span>
+      </div>
+    </div>
+
+    <!-- Node geometry by level -->
+    <div class="legend-section legend-geometry">
+      <div class="legend-section-label">Node Shape</div>
+      <div class="legend-item">
+        <span class="legend-shape legend-shape-icosa"></span>
+        <span class="legend-label">Foundational</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-shape legend-shape-sphere"></span>
+        <span class="legend-label">Intermediate</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-shape legend-shape-octa"></span>
+        <span class="legend-label">Advanced</span>
+      </div>
+    </div>
+
+    <!-- Edge type colors -->
+    <div class="legend-section legend-edge-types">
+      <div class="legend-section-label">Morphism Type</div>
+      <div class="legend-edge-grid">
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #C0C0C0;"></span>
+          <span class="legend-label">Composition</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #00E5FF;"></span>
+          <span class="legend-label">Embedding</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #FFD700;"></span>
+          <span class="legend-label">Bridge</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #FF00FF;"></span>
+          <span class="legend-label">Transform</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #FF6B6B;"></span>
+          <span class="legend-label">Constitutive</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #7B68EE;"></span>
+          <span class="legend-label">Quantization</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #00FF7F;"></span>
+          <span class="legend-label">Conservation</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #FF8C00;"></span>
+          <span class="legend-label">Limit</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #E040FB;"></span>
+          <span class="legend-label">Lifting</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #40E0D0;"></span>
+          <span class="legend-label">Duality</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-edge-swatch" style="background-color: #FFB74D;"></span>
+          <span class="legend-label">Approximation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STATS OVERLAY (bottom-right) ===== -->
+  <div id="stats-overlay" class="stats-overlay">
+    <div class="stats-row">
+      <span class="stats-label">Nodes</span>
+      <span class="stats-value" id="stats-nodes">--</span>
+    </div>
+    <div class="stats-row">
+      <span class="stats-label">Edges</span>
+      <span class="stats-value" id="stats-edges">--</span>
+    </div>
+    <div class="stats-row">
+      <span class="stats-label">Cross-domain</span>
+      <span class="stats-value" id="stats-cross-domain">--</span>
+    </div>
+  </div>
+
+  <!-- Local application logic (module for ESM imports of THREE + SpriteText) -->
+  <script type="module" src="app.js?v=6"></script>
+</body>
+</html>
