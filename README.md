@@ -109,17 +109,9 @@ A few design choices that aren't obvious from reading the code:
 
 **Minimum dependencies, max portability.** Everything is loaded from CDN. There's no build step, no bundler, no `package.json`, no Node. You can host it on GitHub Pages, an S3 bucket, or a USB stick. The cost of this is reliance on third-party CDN availability — see "Deploying" below.
 
-## Pinned versions
+## CDN dependencies
 
-CDN URLs are version-pinned so this repo will keep working even as upstream libraries change:
-
-- `d3@7.9.0`
-- `3d-force-graph@1.73.4`
-- `three@0.160.0`
-- `three-spritetext@1.9.0`
-- `marked@12.0.1`
-
-If you fork this and want to update, search the HTML and JS files for the version strings.
+Everything is loaded from CDN at runtime. `d3@7.9.0` and `marked@12.0.1` are pinned. `three`, `three-spritetext`, and `3d-force-graph` are intentionally left unpinned (resolved to "latest") because the working combination on the source site relies on those being mutually compatible at whatever esm.sh / jsdelivr currently serve. Pinning them to mismatched versions has caused the 3D view to silently break in the past — if you fork and want reproducibility, pin them carefully and test together.
 
 ## Deploying
 

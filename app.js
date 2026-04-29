@@ -1,6 +1,6 @@
-import * as THREE from "https://esm.sh/three@0.160.0";
-import SpriteText from "https://esm.sh/three-spritetext@1.9.0";
-import { UnrealBloomPass } from "https://esm.sh/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js";
+import * as THREE from "https://esm.sh/three";
+import SpriteText from "https://esm.sh/three-spritetext";
+import { UnrealBloomPass } from "https://esm.sh/three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 // ===== CONSTANTS =====
 
