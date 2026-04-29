@@ -1,5 +1,9 @@
 # Constellation Network Visualization
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?logo=github)](https://larsenclose.github.io/simple_visualization_approach/) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+**Live demo:** [larsenclose.github.io/simple_visualization_approach](https://larsenclose.github.io/simple_visualization_approach/) — open the link, no install required.
+
 A self-contained, dependency-free static site for visualizing a typed-edge knowledge graph in 3D and 2D. The example dataset is a 32-node constellation of physics, mathematics, electrical engineering, and RF engineering, but the rendering is generic — swap `data.json` and re-skin the legend to use it for any domain.
 
 This is the visualization referenced in [Human Grokking: Phase Transitions in Semantic Field Saturation (Close, 2026)](https://zenodo.org/records/18627239).
